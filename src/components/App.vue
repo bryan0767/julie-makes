@@ -2,12 +2,14 @@
   <div id="rootGrid">
     <div id="heroGrid">
       <Header />
-      <!-- <PortfolioDrawer /> -->
+      <PortfolioDrawer />
+      <ContactDrawer />
     </div>
   </div>
 </template>
 
 <style lang="scss">
+
   body {
       background:black
   }
@@ -22,7 +24,12 @@
     height:500vh;
     width:100vw;
     position:relative;
+    overflow:hidden;
+      .md-overlay {
+        display:none;
+      }
   }
+
 </style>
 
 <script>
@@ -30,24 +37,90 @@ import ScrollMagic from "scrollmagic"
 
 import Header from "./Header.vue"
 import PortfolioDrawer from "./PortfolioDrawer.vue"
+import ContactDrawer from "./ContactDrawer.vue"
 
   export default {
     name: "App",
     components: {
       Header,
-      PortfolioDrawer
+      PortfolioDrawer,
+      ContactDrawer
     },
     data(){
       return {
-        name:"none",
-        job:"none"
+        lastPos:0,
+        newPos:0
+      }
+    },
+    methods: {
+      checkScrollValues(settings) {
+
+        this.$store.commit("Scroll/changePos", {
+          key:"lastPos",
+          value: this.$store.state.Scroll.newPos,
+        })
+
+        this.$store.commit("Scroll/changePos", {
+          key:"newPos",
+          value: window.scrollY
+        })
+
       }
     },
     mounted: function() {
-
+      let root = document.querySelector("#rootGrid")
       let scene = new ScrollMagic.Scene({
-                            	duration: 5000,
+                            	duration: root.clientHeight + root.scrollHeight
                             }).setPin('#heroGrid')
+                              .on("progress", (e) => {
+                                this.checkScrollValues()
+
+                                let drawer = document.querySelector(".rootDrawer")
+                                let endReached = drawer.scrollHeight - Math.floor(drawer.scrollTop) <= drawer.clientHeight
+                                let windowScroll = drawer.scrollHeight >= window.scrollY
+                                let { newPos, lastPos, position } = this.$store.state.Scroll
+                                let { portfolioOpen } = this.$store.state.Portfolio
+
+                                if( !this.$store.state.Portfolio.addReverseScene && e.progress > 0 ) {
+                                  $(root).height(root.clientHeight + root.scrollHeight)
+                                  this.$store.commit("Portfolio/addReverseScene", true)
+                                }
+
+                                if( endReached ) {
+                                  if( e.scrollDirection == 'REVERSE' && portfolioOpen && windowScroll ) {
+                                    this.$store.commit("Scroll/scrollDrawer", {
+                                      value: newPos - lastPos
+                                    })
+
+                                    $(drawer).animate({
+                                      scrollTop: parseFloat( this.$store.state.Scroll.position.toFixed(1) )
+                                    },{
+                                      easing:"linear",
+                                      duration:5
+                                    })
+                                  }
+
+                                } else {
+
+                                  if(e.scrollDirection == "REVERSE") {
+                                    this.$store.commit("Scroll/scrollDrawer", {
+                                      value: newPos - lastPos
+                                    })
+                                  } else {
+                                    if(e.progress > .15) {
+                                        this.$store.commit("Scroll/scrollDrawer", {
+                                          value: newPos - lastPos
+                                        })
+                                    }
+                                  }
+                                  $(drawer).animate({
+                                    scrollTop: parseFloat( this.$store.state.Scroll.position.toFixed(1) )
+                                  }, {
+                                    easing:"linear",
+                                    duration:5
+                                  })
+                                }
+                              })
 
       this.$store.dispatch("Scroll/addScene", scene)
 

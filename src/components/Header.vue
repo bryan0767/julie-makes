@@ -34,6 +34,7 @@
   .variantColor {
       color: #ffeec7 !important;
   }
+
 </style>
 
 <script>
@@ -49,7 +50,7 @@
                               offset:500
                             }).setTween("#bottomTextGrid", 2, {
                               rotate: "-90deg",
-                              transform:"translateX(-100px)"
+                              transform:`translateX(-20vw)`
                             })
 
       let bottomHeaderScene = new ScrollMagic.Scene({
