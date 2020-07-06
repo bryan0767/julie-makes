@@ -14,25 +14,23 @@
 <style>
   #headerRootGrid {
     position:absolute;
-    width:70%;
-    left:50%;
-    bottom:25%;
-    transform:translateX(-50%);
-    max-width:1180px;
-    width:100%;
-    padding: 0 40px;
+    width:100vw;
+    height:100vh;
   }
   #headerGrid {
-    width:fit-content;
-    float:right
+    width:350px;
+    position:absolute;
+    bottom: 25%;
+    right:10%;
   }
   #bottomTextGrid {
     text-align:center;
-    margin:15px 0
+    margin:15px 0;
   }
 
   .variantColor {
-      color: #ffeec7 !important;
+      /* color: #ffeec7; */
+      color:black;
   }
 
 </style>
@@ -48,9 +46,9 @@
                               duration: 500,
                               triggerElement:"#heroGrid",
                               offset:500
-                            }).setTween("#bottomTextGrid", 2, {
+                            }).setTween("#headerGrid", 2, {
                               rotate: "-90deg",
-                              transform:`translateX(-20vw)`
+                              right:"40%"
                             })
 
       let bottomHeaderScene = new ScrollMagic.Scene({
@@ -58,7 +56,8 @@
                               triggerElement:"#heroGrid",
                               offset:500
                             }).setTween("#headerTitle", 2, {
-                              opacity:"0"
+                              opacity:"0",
+                              display:"none"
                             })
 
       this.$store.dispatch("Scroll/addScene", bottomTextScene)

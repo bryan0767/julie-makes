@@ -25,10 +25,10 @@ export default {
     changePos(state, payload) {
       const { key, value } = payload
       state[ key ] = parseFloat(value.toFixed(1))
-    }     
+    }
   },
   actions:{
-    addScene({commit, dispatch}, data){
+    addScene({ commit, dispatch }, data){
       commit('addScene', data)
     }
   }

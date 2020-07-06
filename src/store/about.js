@@ -3,11 +3,12 @@ import ScrollMagic from "scrollmagic"
 export default {
   namespaced:true,
   state: {
-    contactOpen: false
+    aboutOpen: false
   },
   mutations: {
     toggleOpen(state, value){
-      state.contactOpen = value
+      console.log(value, 'the mutation')
+      state.aboutOpen = value
     }
   },
   actions:{}
