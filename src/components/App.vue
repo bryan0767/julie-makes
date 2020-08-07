@@ -1,27 +1,35 @@
 <template>
   <div id="rootGrid">
-    <div id="heroGrid">
+    <ProgressBar />
+    <HomePage />
+    <PortfolioPage />
+    <AboutPage />
+    <!-- <MobileToolbar v-if="mobile()" /> -->
+    <!-- <div id="heroGrid" class="grid"> -->
+      <!-- <div id="imageGridContact" class="grid"></div>
+      <div id="imageGridAbout" class="grid"></div>
+      <div id="imageGridPort" class="grid"></div>
       <Header />
       <PortfolioDrawer />
-      <AboutDrawer />
-    </div>
+      <AboutDrawer v-if="mountAboutDrawer" />
+      <ContactDrawer v-if="mountContactDrawer" /> -->
+    <!-- </div> -->
   </div>
 </template>
 
 <style lang="scss">
 
-  body {
-      background:black
+  #app {
+    overflow: hidden;
   }
 
-  #heroGrid {
-    background: url("https://images.unsplash.com/photo-1500964757637-c85e8a162699?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb") center/cover no-repeat;
+  .grid {
     height:100vh;
     width:100vw;
     position:absolute;
   }
+
   #rootGrid {
-    height:500vh;
     width:100vw;
     position:relative;
     overflow:hidden;
@@ -30,30 +38,126 @@
       }
   }
 
+  #imageGrid {
+    background: url("https://images.pexels.com/photos/374684/pexels-photo-374684.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1100") center/cover no-repeat;
+  }
+
+  #imageGridPort {
+    background: url("https://c.wallhere.com/photos/5a/a4/black_blackandwhite_bw_monochrome_white_woman_women_lady-506390.jpg") center/cover no-repeat;
+    opacity:.5;
+  }
+
+  #imageGridAbout {
+    background: url("https://tr4.cbsistatic.com/hub/i/r/2020/04/21/92fefa52-5abd-4cb6-88ad-f440a9952a8b/resize/1200x900/159117c93c0182e2d4d4f279b3fbbc40/ca-9.jpg") center/cover no-repeat;
+  }
+
+  #imageGridContact {
+    background: url("https://wallpaperaccess.com/full/547232.jpg") center/cover no-repeat;
+  }
+
+  html {
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: #FF0000;
+  }
+
 </style>
 
 <script>
 import ScrollMagic from "scrollmagic"
 
 import Header from "./Header.vue"
+import MobileToolbar from "./MobileToolbar.vue"
 import PortfolioDrawer from "./PortfolioDrawer.vue"
 import AboutDrawer from "./AboutDrawer.vue"
+import ContactDrawer from "./ContactDrawer.vue"
+
+import ProgressBar from "./ProgressBar.vue"
+import HomePage from "./HomePage.vue"
+import PortfolioPage from "./PortfolioPage.vue"
+import AboutPage from "./AboutPage.vue"
+
 
   export default {
     name: "App",
     components: {
       Header,
+      MobileToolbar,
+      AboutDrawer,
       PortfolioDrawer,
-      AboutDrawer
+      ContactDrawer,
+      HomePage,
+      ProgressBar,
+      PortfolioPage,
+      AboutPage
     },
     data(){
-      return {}
+      return {
+        mountHeader: false,
+        mountAboutDrawer:false,
+        mountContactDrawer:false,
+        scrollProps: {
+          easing:"linear",
+          duration: 5
+        }
+      }
+    },
+    mounted: function() {
+      //
+      // this.$store.commit("Scroll/setElements", [
+      //   { key:"root", value: document.querySelector("#rootGrid") },
+      //   { key:"portfolioDrawer", value: document.querySelector(".portfolioDrawer") }
+      // ])
+      //
+      // this.mountAboutDrawer = true
+      // this.mountContactDrawer = true
+      // this.mountHeader = true
+      //
+      // let { root } = this.$store.state.Scroll
+      //
+      // $( root ).css( 'height', $(window).height() * 5 )
+      // let scene = new ScrollMagic.Scene({
+      //                       	duration: ( $(root).height() - $(window).height() )
+      //                       }).setPin('#heroGrid')
+      //                         .on("progress", (e) => {
+      //                           $("#progressFill").css("height", `${(e.progress).toFixed(2) * 100}%` )
+      //                           this.$store.commit("Scroll/changeProgress", e.progress)
+      //                           let toolbar = document.querySelector(".mobileToolbar");
+      //
+      //                           this.checkScrollValues()
+      //
+      //                           let {
+      //                             About: { aboutOpen },
+      //                             Contact: { contactOpen },
+      //                             Portfolio: { portfolioOpen, addReverseScene },
+      //                             Scroll: { root,
+      //                                       newPos,
+      //                                       lastPos,
+      //                                       position,
+      //                                       aboutPosition,
+      //                                       contactPosition,
+      //                                       portfolioDrawer,
+      //                                       aboutDrawer,
+      //                                       contactDrawer }
+      //                           } = this.$store.state
+      //                         })
+      //
+      // this.$store.dispatch("Scroll/addScene", scene)
+
     },
     methods: {
+      mobile() {
+        return $(window).width() <= 599
+      },
       checkScrollValues(settings) {
-
-        // will scroll the divs based on user scroll speeds
-
         this.$store.commit("Scroll/changePos", {
           key:"lastPos",
           value: this.$store.state.Scroll.newPos,
@@ -63,139 +167,24 @@ import AboutDrawer from "./AboutDrawer.vue"
           key:"newPos",
           value: window.scrollY
         })
+      },
+      animateDrawer( open, e, progress, position, el, value ) {
+        let { newPos, lastPos } = this.$store.state.Scroll
+        if( open ) {
+          if( e.progress > progress ) {
+            this.$store.commit("Scroll/scrollDrawer", { key: position, value: newPos - lastPos })
+          } else {
+              if( e.scrollDirection == "REVERSE" ) {
+                this.$store.commit("Scroll/scrollDrawer", { key: position, value: newPos - lastPos })
+              }
+          }
+        }
 
+        $(el).animate({
+          scrollTop: parseFloat( value.toFixed(1) )
+        }, this.scrollProps)
       }
     },
-    mounted: function() {
-
-      // main grid
-      let root = document.querySelector("#rootGrid")
-
-      // portfolio drawer
-      let portfolioDrawer = document.querySelector(".portfolioDrawer")
-      // the end of the portfolio drawer
-      // let endReached = portfolioDrawer.scrollHeight - Math.floor(portfolioDrawer.scrollTop) <= portfolioDrawer.clientHeight
-      // checks if user has scrolled past drawer completely
-      // let portfolioDrawerScroll = portfolioDrawer.scrollHeight >= window.scrollY
-
-      // about drawer
-      let aboutDrawer = document.querySelector(".rootAboutDrawer")
-      // the end of the about drawer
-      // let aboutDrawerEndReached = aboutDrawer.scrollHeight - Math.floor(aboutDrawer.scrollTop) <= aboutDrawer.clientHeight
-      // checks if user has scrolled past drawer completely
-      // let aboutScroll = aboutDrawer.scrollHeight >= window.scrollY
-
-      let aboutScene = new ScrollMagic.Scene({
-        duration: 600,
-        triggerElement:"#rootGrid",
-        offset: portfolioDrawer.scrollHeight + portfolioDrawer.clientHeight + 200
-      }).setTween(aboutDrawer, 2, {
-          transform: "translate3d(0, 30%, 0)",
-          opacity:"1"
-      }).on("end", (e) => {
-        if(e.scrollDirection == 'FORWARD') {
-          this.$store.commit("About/toggleOpen", true)
-        } else {
-          this.$store.commit("About/toggleOpen", false)
-        }
-      });
-
-      let newHeaderScene = new ScrollMagic.Scene({
-        duration: 500,
-        triggerElement:"#rootGrid",
-        offset: portfolioDrawer.scrollHeight + portfolioDrawer.clientHeight + 500
-      }).setTween("#headerGrid", 10, {
-          rotate: "0deg",
-          top:"20%",
-          right:"10%"
-        })
-
-      this.$store.dispatch("Scroll/addScene", aboutScene)
-      this.$store.dispatch("Scroll/addScene", newHeaderScene)
-
-      let scene = new ScrollMagic.Scene({
-                            	duration: root.clientHeight + root.scrollHeight
-                            }).setPin('#heroGrid')
-                              .on("progress", (e) => {
-                                this.checkScrollValues()
-
-                                let { newPos, lastPos, position } = this.$store.state.Scroll
-                                let { portfolioOpen } = this.$store.state.Portfolio
-                                let { aboutOpen } = this.$store.state.About
-
-                                if( !this.$store.state.Portfolio.addReverseScene && e.progress > 0 ) {
-                                  // adds reverse scene to portfolio in store
-                                  $(root).height(root.clientHeight + root.scrollHeight)
-                                  this.$store.commit("Portfolio/addReverseScene", true)
-                                }
-
-                                // if( endReached ) {
-                                  // if the end of the portfolio drawer is reached
-                                  // console.log('the end is reached')
-                                  // if( e.scrollDirection == 'REVERSE' && portfolioOpen && portfolioDrawerScroll ) {
-                                  //   console.log('here', portfolioOpen)
-                                  //   // this.$store.commit("Scroll/scrollDrawer", {
-                                  //   //   value: newPos - lastPos
-                                  //   // })
-                                  //   //
-                                  //   // $(portfolioDrawer).animate({
-                                  //   //   scrollTop: parseFloat( this.$store.state.Scroll.position.toFixed(1) )
-                                  //   // },{
-                                  //   //   easing:"linear",
-                                  //   //   duration:5
-                                  //   // })
-                                  // } else {
-                                  //   // console.log(aboutOpen)
-                                  //   if(aboutOpen) {
-                                  //     console.log("here in the if")
-                                  //     $(aboutDrawer).animate({
-                                  //       scrollTop: aboutDrawer.scrollTop += ( newPos - lastPos )
-                                  //     }, {
-                                  //       easing:"linear",
-                                  //       duration:5
-                                  //     })
-                                  //   }
-                                  //   // about me drawer
-                                  //
-                                  //   this.$store.commit("Scroll/scrollDrawer", {
-                                  //     value: newPos - lastPos
-                                  //   })
-                                  // }
-
-                                // } else {
-                                  // if the end of the portfolio drawer has not been reached
-                                  if(e.scrollDirection == "REVERSE") {
-                                    this.$store.commit("Scroll/scrollDrawer", {
-                                      value: newPos - lastPos
-                                    })
-                                  } else {
-                                    if(e.progress > .10) {
-                                        this.$store.commit("Scroll/scrollDrawer", {
-                                          value: newPos - lastPos
-                                        })
-                                    }
-                                  }
-
-                                  $(portfolioDrawer).animate({
-                                    scrollTop: parseFloat( this.$store.state.Scroll.position.toFixed(1) )
-                                  }, {
-                                    easing:"linear",
-                                    duration:5
-                                  })
-                                // }
-                              })
-
-      this.$store.dispatch("Scroll/addScene", scene)
-
-
-      // fetch("/getAll")
-      //       .then(x => x.json())
-      //       .then(y => {
-      //         this.name = y.name;
-      //         this.job = y.job
-      //       })
-
-    }
   }
 
 </script>

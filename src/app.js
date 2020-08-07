@@ -8,10 +8,11 @@ import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
 
 import App from "./components/App.vue"
 import { store } from "./store"
-import { MdDrawer } from "vue-material/dist/components"
+import { MdDrawer, MdIcon } from "vue-material/dist/components"
 
 Vue.use(VueRouter);
 Vue.use(MdDrawer);
+Vue.use(MdIcon);
 
 const routes = [
   {path: "/", component: App}
