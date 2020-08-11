@@ -1,30 +1,36 @@
 <template>
   <div id="rootHomePageGrid">
     <div id="blurOverlay"></div>
-    <div id="homePageHeaderGrid">
-      <div class="md-display-3"  style="text-align:center;margin:20px 0;color:#d5d5d5">Juliana Atencia</div>
-      <div class="md-body-1" style="text-align:center;color:#d5d5d5">
+    <v-row id="homePageHeaderGrid" dense>
+      <v-col cols="12" class="text-h3 text-center" style="color:#d5d5d5">Juliana Atencia</v-col>
+      <v-col cols="12" class="text-body-2 text-center" style="color:#d5d5d5">
         American novelist, literary critic, and scholar best known for his novel Invisible Man,
         which won the National Book Award in 1953.
         He also wrote Shadow and Act, a collection of political,
         social and critical essays, and Going to the Territory.
-      </div>
-      <div id="homePageHeaderDivider"></div>
-      <div id="homePageHeaderIconGrid" class="md-layout" style="color:#d5d5d5">
-        <md-icon class="md-size-2x" style="color:#d5d5d5">facebook</md-icon>
-        <!-- <img style="width:10%;opacity:.6" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Instagram_font_awesome.svg"/> -->
-        <md-icon class="md-size-2x" style="color:#d5d5d5">instagram</md-icon>
-        <md-icon class="md-size-2x" style="color:#d5d5d5">mail</md-icon>
-      </div>
-    </div>
+      </v-col>
+      <v-col cols="10" id="homePageHeaderDivider"></v-col>
+      <v-col cols="12" id="homePageHeaderIconGrid">
+        <v-row style="width:70%;margin:0 auto" justify="space-around">
+          <v-icon class="iconColor">mdi-facebook</v-icon>
+          <v-icon class="iconColor">mdi-instagram</v-icon>
+          <v-icon class="iconColor">mdi-linkedin</v-icon>
+          <v-icon class="iconColor">mdi-mail</v-icon>
+        </v-row>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
 <style lang="scss">
+
+  .iconColor {
+    color:#d5d5d5 !important;
+  }
+
   #rootHomePageGrid {
     height:100vh;
     width:100vw;
-    border:2px solid;
     position:relative;
     background: url("https://c.wallhere.com/photos/5a/a4/black_blackandwhite_bw_monochrome_white_woman_women_lady-506390.jpg!d") center/cover no-repeat;
   }
@@ -38,7 +44,8 @@
   }
 
   #homePageHeaderGrid {
-    max-width:500px;
+    width:80%;
+    max-width:420px;
     position:absolute;
     margin:0 auto;
     transform:translate(-50%, -50%);
@@ -47,10 +54,10 @@
   }
 
   #homePageHeaderDivider {
-      width:100%;
       background:#cbc9c9;
       height:3px;
-      margin:20px 0
+      margin:20px auto;
+      padding:0;
   }
 
 </style>

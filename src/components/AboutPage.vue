@@ -1,54 +1,57 @@
 <template>
-  <div id="rootAboutPage">
-    <div class="md-layout md-alignment-center-center" style="max-width:80vw;margin:50px auto 0px;">
-      <div class="md-layout-item md-size-40 portfolioSeperator"></div>
-      <div class="md-layout-item md-size-20 md-display-1" style="text-align:center">About Me</div>
-      <div class="md-layout-item md-size-40 portfolioSeperator"></div>
-    </div>
-    <div id="aboutPageContainer" class="md-layout">
-      <div class="md-layout-item md-size-40" id="aboutContact">
-        <div class="contactImage" style="background:url('https://pkimgcdn.peekyou.com/0f91777bce73cf296b28e66095fde798.jpeg') center/cover no-repeat"></div>
-        <div class="bottomDescription" style="width:70%;margin:0 auto;text-align:center">
-          <div class="md-caption" style="margin:20px 0;font-style:italic;">Life is to be lived, not controlled; and humanity is won by continuing to play in face of certain defeat.</div>
-          <div class="md-layout" style="width:90%;margin:0 auto">
-            <md-icon class="md-layout-item">facebook</md-icon>
-            <md-icon class="md-layout-item">instagram</md-icon>
-            <md-icon class="md-layout-item">mail</md-icon>
-            <md-icon class="md-layout-item">thumb_up</md-icon>
+  <v-lazy>
+    <div id="rootAboutPage">
+      <v-row justify="center" align="center" style="width:90%;margin:0px auto 50px;">
+        <v-col cols="2" class="portfolioSeperator"></v-col>
+        <v-col cols="2" class="text-h5 text-center">About Me</v-col>
+        <v-col cols="8" class="portfolioSeperator"></v-col>
+      </v-row>
+      <v-row align="center" style="width:90%;margin:0px auto">
+        <v-col cols="6" class="d-flex justify-start">
+          <div id="aboutImagesContainer">
+            <div id="aboutImage"></div>
+            <v-row style="height:75px">
+              <v-col style="background:url('https://www.kirkportraitdesigns.com/wp-content/uploads/2012/06/LT-0104.jpg') center/cover no-repeat"></v-col>
+              <v-col style="background:url('https://i.pinimg.com/originals/3c/39/1c/3c391cb2f528a8c19c239ffe32c761e0.jpg') center/cover no-repeat"></v-col>
+              <v-col style="background:url('https://images.squarespace-cdn.com/content/v1/53a2b3a1e4b0a5020bebe676/1405692357118-YUTZ1L8S84R6FUUKXTPT/ke17ZwdGBToddI8pDm48kA0wePVlgOGM5yNNrADThjYUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKc3f5rMIUspMOT17T3MGHdS3s1KwpjdUupKJDR9JNb8i8O932tY93Uq43o4DcCmt6U/black-and-white-street-photography') center/cover no-repeat"></v-col>
+              <v-col style="background:url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTSKk_hXea1xkELkN_LPBHTqvk_VrURjfLaww&usqp=CAU') center/cover no-repeat"></v-col>
+            </v-row>
           </div>
-        </div>
-      </div>
-      <div class="md-layout md-alignment-top-center md-layout-item md-size-60" id="aboutDescription" style="padding:40px 0">
-        <div class="md-layout-item md-size-70" id="innerAboutDescription">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-              ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              <br>
-              <br>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-              ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              <br>
-              <br>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-              ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-        </div>
-      </div>
+        </v-col>
+        <v-col cols="6" class="d-flex justify-end">
+          <div id="aboutDescription" class="text-body-2">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <br>
+                <br>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <br>
+                <br>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+          </div>
+        </v-col>
+      </v-row>
     </div>
-  </div>
+  </v-lazy>
 </template>
 
 <style>
   #rootAboutPage {
     height:100vh;
     width:100vw;
-    border: 2px solid;
+    max-width:1100px;
+    padding:50px 0 0;
+    margin:0 auto;
   }
 
   .portfolioSeperator {
@@ -57,35 +60,27 @@
     opacity:.5;
   }
 
-  #aboutPageContainer {
-    width:90vw;
-    height:90vh;
-    margin: 0 auto;
+  #aboutImage {
+    background:url("https://i.pinimg.com/originals/c7/35/33/c735332adc5340082464f0605404275d.jpg") center/cover no-repeat;
+    height:350px;
+    width:100%;
+    margin:10px auto;
   }
 
-  .contactImage {
-    height:200px;
-    width:200px;
-    border-radius:50%;
-    margin:40px auto 0
-  }
-
-  #aboutContact {
-    /* border:1px solid; */
-    height:100%;
+  #aboutImagesContainer {
+    width:90%;
+    max-width:600px;
   }
 
   #aboutDescription {
-    /* border:1px solid pink; */
-    height:100%
+    width:100%;
+    max-width:600px;
   }
 </style>
 
 <script>
   export default {
     name:"AboutPage",
-    mounted: function() {
-      console.log('here')
-    }
+    mounted: function() { }
   }
 </script>

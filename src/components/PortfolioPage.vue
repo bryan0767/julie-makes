@@ -1,205 +1,115 @@
 <template>
-  <div id="rootPortfolioPageGrid" class="md-layout">
-    <div class="md-layout md-alignment-center-center" style="max-width:80vw;margin:50px auto 0px;">
-      <div class="md-layout-item md-size-40 portfolioSeperator"></div>
-      <div class="md-layout-item md-size-20 md-display-1" style="text-align:center">Portfolio</div>
-      <div class="md-layout-item md-size-40 portfolioSeperator"></div>
-    </div>
-    <div id="portfolioPageItemsContainer">
-      <div id="portfolioPageInnerItemsContainer" :style="{ width:innerItemsContainerWidth }">
-        <div class="innerItem" :style="{ width: innerItemWidth }" v-for="portfolioItem in $store.state.Portfolio.items">
-          <div class="portfolioPageItem">
-              <div class="portfolioPageItemImage" :style="{ background:`url('${portfolioItem.thumbnail}') center/cover no-repeat` }"/>
-              <div class="portfolioPageItemCategory md-caption">{{ portfolioItem.category }}</div>
-              <div class="portfolioPageItemHeader md-title">{{ portfolioItem.header }}</div>
-              <div class="portfolioPageItemDescription">{{ portfolioItem.content }}</div>
+    <v-row id="rootPortfolioGrid">
+      <v-col cols="3" class="sidePortfolio">
+          <div class="blurOverlay"></div>
+          <div class="contactImage"></div>
+          <v-col cols="10" class="bottomDescription justify-center text-center">
+            <div class="text-subtitle-1 iconColor" style="margin:20px auto 0;">Juliana Atencia</div>
+            <div class="text-caption font-italic text-center iconColor" style="margin:10px auto 20px;">Life is to be lived, not controlled; and humanity is won by continuing to play in face of certain defeat.</div>
+            <div class="d-flex justify-space-around" style="width:75%;margin:0 auto;">
+              <v-icon class="iconColor">mdi-facebook</v-icon>
+              <v-icon class="iconColor">mdi-instagram</v-icon>
+              <v-icon class="iconColor">mdi-linkedin</v-icon>
+              <v-icon class="iconColor">mdi-mail</v-icon>
+            </div>
+          </v-col>
+      </v-col>
+      <v-col cols="9" id="portfolioItemContainer">
+        <div id="portfolioInnerItemContainer" class="d-flex flex-column flex-wrap">
+          <div v-for="item in $store.state.Portfolio.items" class="portfolioItem">
+            <div class="portfolioItemImage" :style="{ background:`url('${item.thumbnail}') center/cover no-repeat`, position:'relative' }"></div>
+            <div class="portfolioPageItemCategory text-caption">{{ item.category }}</div>
+            <div class="portfolioPageItemHeader text-subtitle-2">{{ item.header }}</div>
+            <div class="portfolioPageItemDescription">{{ item.content }}</div>
           </div>
         </div>
-      </div>
-      <div id="selectors">
-        <div v-for="( selector , ind) in selectorCount()" class="selector" @click="movePort($event, ind)"></div>
-      </div>
-    </div>
-  </div>
+      </v-col>
+    </v-row>
 </template>
 
 <style>
 
-  #rootPortfolioPageGrid {
-    height:100vh;
+  #rootPortfolioGrid {
     width:100vw;
   }
 
-  #contactContainer {
-    width:25vw;
-    padding:10px 30px;
-     #profileImage {
-       height:150px;
-       width:150px;
-       border-radius:50%;
-    }
+  .contactImage {
+    height:200px;
+    width:200px;
+    border-radius:50%;
+    margin:40px auto 0;
+    background:url('https://pkimgcdn.peekyou.com/0f91777bce73cf296b28e66095fde798.jpeg') center/cover no-repeat
   }
 
-  .portfolioSeperator {
-    height:2px;
-    background:grey;
-    opacity:.5;
-  }
-
-  #portfolioPageItemsContainer {
-    height:100vh;
-    padding:30px 0;
-    
-  }
-
-  #portfolioPageInnerItemsContainer {
-    display:flex;
-    position:relative;
-  }
-
-  .innerItem {
-    padding:20px 0;
-  }
-
-  .portfolioPageItem {
-    max-width:320px;
+  .bottomDescription {
     margin:0 auto;
   }
 
-  .portfolioPageItemImage {
-    width:320px;
-    height:200px;
+  .sidePortfolio {
+    /* background:url("https://c.wallhere.com/photos/fe/65/tunnel_underground_lights_architecture_photography-56850.jpg!d") center / cover no-repeat; */
+    background: #394d39ad;
+    max-height:100vh;
+    border-radius:0px;
+    position:relative;
+  }
+
+  .blurOverlay {
+    height: 100vh;
+    width: 25vw;
+    position:absolute;
+    filter: blur(1000px);
+    z-index: 999;
+    background: #394d39a3;
+  }
+
+  .icon {
+    color:white !important;
+  }
+
+  #portfolioItemContainer {
+    height:100vh;
+    overflow: auto;
+    background:#dddddd;
+  }
+
+  #portfolioInnerItemContainer {
+    height:200vh;
+    overflow-x: scroll;
+    background:#dddddd;
+      .portfolioItem {
+        width:min-content;
+        flex:initial;
+        padding:20px;
+        border:.2px solid #e8e8e8;
+        background:white;
+      }
+  }
+
+  .portfolioItemImage {
+    height:160px;
+    width:240px;
     border-radius:10px;
   }
 
   .portfolioPageItemCategory {
     margin:15px 0 5px;
+    font-size:12px;
+  }
+
+  .portfolioPageItemHeader {
+    font-size:18px;
+    line-height:20px;
   }
 
   .portfolioPageItemDescription {
-    margin:10px 0;
+    margin:5px 0;
+    font-size:12px;
   }
-
-  #selectors {
-    color:white;
-    width:100vw;
-    text-align:center;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-flow:row wrap;
-      & .active {
-        background: #394d39ad;
-      }
-  }
-
-  .selector {
-    /* background:black; */
-    border: .5px solid #394d39;
-    height:20px;
-    width:20px;
-    margin:20px;
-    border-radius:50px;
-    cursor:pointer;
-    z-index: 1;
-  }
-
 
 </style>
 
 <script>
- export default {
-   name: "PortfolioPage",
-   data() {
-     return {
-       innerItemsContainerWidth: "",
-       innerItemWidth:"",
-       count: 3,
-       val:0,
-       index: 0
-     }
-   },
-   mounted: function(){
-     this.resize()
-   },
-   methods: {
-     resize() {
-       let width = $(window).width();
-       this.val = 0;
-
-       if(width > 1200) {
-         this.count = 3
-         this.innerItemsContainerWidth = this.getWidth("inner") + "px",
-         this.innerItemWidth = this.getWidth("card") + "px"
-       } else if (width > 630) {
-         this.count = 2
-         this.innerItemsContainerWidth = this.getWidth("inner") + "px",
-         this.innerItemWidth = this.getWidth("card") + "px"
-       } else {
-         this.count = 1
-         this.innerItemsContainerWidth = this.getWidth("inner") + "px",
-         this.innerItemWidth = this.getWidth("card") + "px"
-       }
-
-       $("#portfolioPageInnerItemsContainer").animate({
-         right: 0
-       }, 500)
-
-       let selector = document.querySelectorAll(".selector")
-
-       Object.values(selector).forEach(x => {
-         let list = Object.values(x.classList)
-         if( list.includes('active') ) {
-           x.classList.remove('active')
-         }
-       })
-
-       Object.values(selector)[0].classList.add("active")
-     },
-     getWidth(type) {
-      let elWidth = $(window).width()
-      switch(type) {
-        case "inner":
-        return ( elWidth / ( this.count ) ) * this.$store.state.Portfolio.items.length
-        break;
-        case "card":
-        return ( elWidth / ( this.count ) )
-        break;
-        default:
-        return;
-        break;
-      }
-    },
-    movePort(e, ind) {
-      let direcVal;
-
-      if(ind == 0) {
-        this.val = 0
-      } else {
-        direcVal = ind - this.index
-        this.val = this.val += ( $( window ).width() * direcVal )
-      }
-
-      this.index = ind
-
-      $("#portfolioPageInnerItemsContainer").animate({
-        right: this.val
-      }, 500)
-
-      let selector = document.querySelectorAll(".selector")
-
-      Object.values(selector).forEach(x => {
-        let list = Object.values(x.classList)
-        if( list.includes('active') && x != e.target ) {
-          x.classList.remove('active')
-        }
-      })
-
-      e.target.classList.add("active")
-    },
-    selectorCount() {
-      return Math.ceil(this.$store.state.Portfolio.items.length / this.count)
-    }
-   }
- }
+  export default {
+    name:"PortfolioPage"
+  }
 </script>

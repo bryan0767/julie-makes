@@ -1,26 +1,34 @@
 <template>
-  <div id="rootGrid">
-    <ProgressBar />
-    <HomePage />
-    <PortfolioPage />
-    <AboutPage />
-    <!-- <MobileToolbar v-if="mobile()" /> -->
-    <!-- <div id="heroGrid" class="grid"> -->
-      <!-- <div id="imageGridContact" class="grid"></div>
-      <div id="imageGridAbout" class="grid"></div>
-      <div id="imageGridPort" class="grid"></div>
-      <Header />
-      <PortfolioDrawer />
-      <AboutDrawer v-if="mountAboutDrawer" />
-      <ContactDrawer v-if="mountContactDrawer" /> -->
-    <!-- </div> -->
-  </div>
+  <v-app id="rootGrid">
+    <!-- <ProgressBar /> -->
+
+      <HomePage />
+      <PortfolioPage />
+      <AboutPage />
+      <ContactPage />
+
+  </v-app>
 </template>
 
 <style lang="scss">
 
   #app {
     overflow: hidden;
+  }
+
+  .col {
+    padding:0;
+  }
+
+  .row {
+    margin-right:0;
+    margin-left:0;
+  }
+
+  .rootPage {
+    height:100vh;
+    width:100vw;
+    max-width:1100px;
   }
 
   .grid {
@@ -66,7 +74,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-      background: #FF0000;
+      background: transparent;
   }
 
 </style>
@@ -74,30 +82,23 @@
 <script>
 import ScrollMagic from "scrollmagic"
 
-import Header from "./Header.vue"
-import MobileToolbar from "./MobileToolbar.vue"
-import PortfolioDrawer from "./PortfolioDrawer.vue"
-import AboutDrawer from "./AboutDrawer.vue"
-import ContactDrawer from "./ContactDrawer.vue"
-
 import ProgressBar from "./ProgressBar.vue"
 import HomePage from "./HomePage.vue"
-import PortfolioPage from "./PortfolioPage.vue"
 import AboutPage from "./AboutPage.vue"
+import ContactPage from "./ContactPage.vue"
+import PortfolioPage from "./PortfolioPage.vue"
+import PortfolioPageMobile from "./PortfolioPageMobile.vue"
 
 
   export default {
     name: "App",
     components: {
-      Header,
-      MobileToolbar,
-      AboutDrawer,
-      PortfolioDrawer,
-      ContactDrawer,
-      HomePage,
       ProgressBar,
+      HomePage,
+      AboutPage,
+      ContactPage,
       PortfolioPage,
-      AboutPage
+      PortfolioPageMobile
     },
     data(){
       return {

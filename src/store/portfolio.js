@@ -10,8 +10,7 @@ export default {
         category:"Cooking, Living",
         content:`Lorem ipsum dolor sit
           amet consectetur adipisicing elit. Ratione dolor nemo consectetur possimus
-          vero libero quo dignissimos qui sint odit, quod deserunt obcaecati natus minima
-          laboriosam, veniam voluptates sed rerum?`,
+          vero libero quo dignissimos qui sint odit.`,
         date:"today"
       },
       {
@@ -20,9 +19,7 @@ export default {
         header:"The Number One Travel Mistake you're making and how to fix it",
         category:"Traveling",
         content:`Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Ratione dolor nemo consectetur possimus
-          vero libero quo dignissimos qui sint odit, quod deserunt obcaecati natus minima
-          laboriosam, veniam voluptates sed rerum?`,
+          amet consectetur adipisicing elit.`,
         date:"yesterday"
       },
       {
@@ -32,8 +29,7 @@ export default {
         category:"Traveling",
         content:`Lorem ipsum dolor sit
           amet consectetur adipisicing elit. Ratione dolor nemo consectetur possimus
-          vero libero quo dignissimos qui sint odit, quod deserunt obcaecati natus minima
-          laboriosam, veniam voluptates sed rerum?`,
+          vero libero quo dignissimos qui sint odit, quod deserunt?`,
         date:"yesterday"
       },
       {
@@ -42,9 +38,7 @@ export default {
         header:"Working out at home",
         category:"Living, Fitness",
         content:`Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Ratione dolor nemo consectetur possimus
-          vero libero quo dignissimos qui sint odit, quod deserunt obcaecati natus minima
-          laboriosam, veniam voluptates sed rerum?`,
+          amet consectetur adipisicing elit.`,
         date:"yesterday"
       },
       {
@@ -53,9 +47,7 @@ export default {
         header:"Why our real estate market is crashing",
         category:"Real Estate",
         content:`Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Ratione dolor nemo consectetur possimus
-          vero libero quo dignissimos qui sint odit, quod deserunt obcaecati natus minima
-          laboriosam, veniam voluptates sed rerum?`,
+          amet consectetur adipisicing elit.`,
         date:"yesterday"
       },
       {
@@ -63,10 +55,7 @@ export default {
         thumbnail:"https://media.cntraveler.com/photos/5a82f0054ff8184d0cc2d98a/4:3/w_420,c_limit/Sylvain__2018_DSC_5680.jpg",
         header:"15 best places to eat in New Orleans",
         category:"Food",
-        content:`Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Ratione dolor nemo consectetur possimus
-          vero libero quo dignissimos qui sint odit, quod deserunt obcaecati natus minima
-          laboriosam, veniam voluptates sed rerum?`,
+        content:`Lorem ipsum dolor sit.`,
         date:"yesterday"
       },
       {
@@ -76,8 +65,7 @@ export default {
         category:"Living",
         content:`Lorem ipsum dolor sit
           amet consectetur adipisicing elit. Ratione dolor nemo consectetur possimus
-          vero libero quo dignissimos qui sint odit, quod deserunt obcaecati natus minima
-          laboriosam, veniam voluptates sed rerum?`,
+          vero libero quo dignissimos qui sint odit.`,
         date:"yesterday"
       },
       {
@@ -87,8 +75,7 @@ export default {
         category:"Design, Living",
         content:`Lorem ipsum dolor sit
           amet consectetur adipisicing elit. Ratione dolor nemo consectetur possimus
-          vero libero quo dignissimos qui sint odit, quod deserunt obcaecati natus minima
-          laboriosam, veniam voluptates sed rerum?`,
+          vero libero quo dignissimos qui sint odit.`,
         date:"yesterday"
       },
       {
@@ -97,20 +84,16 @@ export default {
         header:"Guide to cooking authentic recipes",
         category:"Cooking, Food",
         content:`Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Ratione dolor nemo consectetur possimus
-          vero libero quo dignissimos qui sint odit, quod deserunt obcaecati natus minima
-          laboriosam, veniam voluptates sed rerum?`,
+          amet consectetur adipisicing elit?`,
         date:"yesterday"
       },
       {
         id:"9",
-        thumbnail:"https://www.fireflyrecovery.com/uploads/2015-01/54ad3f549f9bd/NewYear-Calendar.jpg",
+        thumbnail:"https://static.parade.com/wp-content/uploads/2019/12/new-years-resolution-ideas.jpg",
         header:"How to achieve that new years resolution",
         category:"Lifestyle",
         content:`Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Ratione dolor nemo consectetur possimus
-          vero libero quo dignissimos qui sint odit, quod deserunt obcaecati natus minima
-          laboriosam, veniam voluptates sed rerum?`,
+          amet consectetur adipisicing elit. Ratione dolor nemo.`,
         date:"yesterday"
       },
       {
@@ -120,8 +103,7 @@ export default {
         category:"Economics",
         content:`Lorem ipsum dolor sit
           amet consectetur adipisicing elit. Ratione dolor nemo consectetur possimus
-          vero libero quo dignissimos qui sint odit, quod deserunt obcaecati natus minima
-          laboriosam, veniam voluptates sed rerum?`,
+          vero libero quo dignissimos qui?`,
         date:"today"
       },
       {
@@ -131,8 +113,7 @@ export default {
         category:"Entertainment",
         content:`Lorem ipsum dolor sit
           amet consectetur adipisicing elit. Ratione dolor nemo consectetur possimus
-          vero libero quo dignissimos qui sint odit, quod deserunt obcaecati natus minima
-          laboriosam, veniam voluptates sed rerum?`,
+          vero libero quo dignissimos.`,
         date:"yesterday"
       },
       {
@@ -142,8 +123,7 @@ export default {
         category:"Politics",
         content:`Lorem ipsum dolor sit
           amet consectetur adipisicing elit. Ratione dolor nemo consectetur possimus
-          vero libero quo dignissimos qui sint odit, quod deserunt obcaecati natus minima
-          laboriosam, veniam voluptates sed rerum?`,
+          vero libero quo dignissimos qui sint odit.`,
         date:"yesterday",
       }
   ]
