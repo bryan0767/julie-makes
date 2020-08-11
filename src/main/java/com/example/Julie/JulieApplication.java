@@ -3,6 +3,7 @@ package com.example.Julie;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
@@ -23,4 +24,8 @@ public Map<String, String> getAll() {
 	    map.put("job", "Dev");
 	    return map;
 	}
+
+// @PostMapping("/sendMessage")
+
+
 }

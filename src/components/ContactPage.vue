@@ -1,5 +1,5 @@
 <template>
-  <v-lazy>
+  <v-lazy height="110vh">
     <div id="rootContactPage">
       <v-row justify="center" align="center" style="width:90%;margin:0 auto;">
         <v-col cols="8" class="portfolioSeperator"></v-col>

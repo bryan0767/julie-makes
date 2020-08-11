@@ -13,6 +13,22 @@
               <v-icon class="iconColor">mdi-mail</v-icon>
             </div>
           </v-col>
+          <!-- <v-expansion-panels dark>
+            <v-expansion-panel>
+              <v-expansion-panel-header>Filters</v-expansion-panel-header>
+              <v-expansion-panel-content>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia placeat quo ratione a?
+                Eaque, voluptas porro nam totam in officiis nesciunt inventore blanditiis, ut corporis saepe neque dolores aspernatur quo.
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-header>Date</v-expansion-panel-header>
+              <v-expansion-panel-content>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia placeat quo ratione a?
+                Eaque, voluptas porro nam totam in officiis nesciunt inventore blanditiis, ut corporis saepe neque dolores aspernatur quo.
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+          </v-expansion-panels> -->
       </v-col>
       <v-col cols="9" id="portfolioItemContainer">
         <div id="portfolioInnerItemContainer" class="d-flex flex-column flex-wrap">

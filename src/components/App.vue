@@ -25,6 +25,10 @@
     margin-left:0;
   }
 
+  .v-expansion-panels {
+    z-index: 99999;
+  }
+
   .rootPage {
     height:100vh;
     width:100vw;
@@ -112,6 +116,11 @@ import PortfolioPageMobile from "./PortfolioPageMobile.vue"
       }
     },
     mounted: function() {
+      fetch("/getAll")
+            .then(blob => blob.json())
+            .then(res => {
+              console.log(res, 'the response')
+            })
       //
       // this.$store.commit("Scroll/setElements", [
       //   { key:"root", value: document.querySelector("#rootGrid") },

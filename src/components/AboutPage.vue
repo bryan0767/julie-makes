@@ -9,12 +9,9 @@
       <v-row align="center" style="width:90%;margin:0px auto">
         <v-col cols="6" class="d-flex justify-start">
           <div id="aboutImagesContainer">
-            <div id="aboutImage"></div>
-            <v-row style="height:75px">
-              <v-col style="background:url('https://www.kirkportraitdesigns.com/wp-content/uploads/2012/06/LT-0104.jpg') center/cover no-repeat"></v-col>
-              <v-col style="background:url('https://i.pinimg.com/originals/3c/39/1c/3c391cb2f528a8c19c239ffe32c761e0.jpg') center/cover no-repeat"></v-col>
-              <v-col style="background:url('https://images.squarespace-cdn.com/content/v1/53a2b3a1e4b0a5020bebe676/1405692357118-YUTZ1L8S84R6FUUKXTPT/ke17ZwdGBToddI8pDm48kA0wePVlgOGM5yNNrADThjYUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKc3f5rMIUspMOT17T3MGHdS3s1KwpjdUupKJDR9JNb8i8O932tY93Uq43o4DcCmt6U/black-and-white-street-photography') center/cover no-repeat"></v-col>
-              <v-col style="background:url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTSKk_hXea1xkELkN_LPBHTqvk_VrURjfLaww&usqp=CAU') center/cover no-repeat"></v-col>
+            <div id="aboutImage" :style="{background:`url('${mainImage}') center/cover no-repeat`}"></div>
+            <v-row style="height:75px;">
+              <v-col v-for="( image, ind ) in images" @click="updateImage( $event, image, ind )" :style="{background:`url('${image}') center/cover no-repeat`}"></v-col>
             </v-row>
           </div>
         </v-col>
@@ -61,7 +58,6 @@
   }
 
   #aboutImage {
-    background:url("https://i.pinimg.com/originals/c7/35/33/c735332adc5340082464f0605404275d.jpg") center/cover no-repeat;
     height:350px;
     width:100%;
     margin:10px auto;
@@ -81,6 +77,22 @@
 <script>
   export default {
     name:"AboutPage",
-    mounted: function() { }
+    data() {
+      return {
+        mainImage: "https://i.pinimg.com/originals/c7/35/33/c735332adc5340082464f0605404275d.jpg",
+        images: [
+          'https://images.squarespace-cdn.com/content/v1/53a2b3a1e4b0a5020bebe676/1405692357118-YUTZ1L8S84R6FUUKXTPT/ke17ZwdGBToddI8pDm48kA0wePVlgOGM5yNNrADThjYUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKc3f5rMIUspMOT17T3MGHdS3s1KwpjdUupKJDR9JNb8i8O932tY93Uq43o4DcCmt6U/black-and-white-street-photography',
+          'https://www.kirkportraitdesigns.com/wp-content/uploads/2012/06/LT-0104.jpg',
+          'https://i.pinimg.com/originals/3c/39/1c/3c391cb2f528a8c19c239ffe32c761e0.jpg',
+          'https://img4.goodfon.com/wallpaper/nbig/7/44/luca-foscili-nicole-simpatichnaia-devushka-shatenka-poziruet.jpg'
+        ]
+      }
+    },
+    methods: {
+      updateImage( e, image, ind ) {
+        this.images[ind] = this.mainImage
+        this.mainImage = image
+      }
+    }
   }
 </script>
