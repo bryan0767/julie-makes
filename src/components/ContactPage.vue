@@ -1,5 +1,9 @@
 <template>
-  <v-lazy height="110vh">
+  <div>
+    <v-snackbar v-model="errorSnackbar">
+      {{ errorText }}
+        <v-btn color="pink" text @click="errorSnackbar = false"> Close </v-btn>
+    </v-snackbar>
     <div id="rootContactPage">
       <v-row justify="center" align="center" style="width:90%;margin:0 auto;">
         <v-col cols="8" class="portfolioSeperator"></v-col>
@@ -11,9 +15,9 @@
           <form id="contact_form" @submit="submitForm" method="POST" action="/getAll">
             <p class="text-h5" style="margin:25px auto 0">
               My Name is <input class="field" v-model="contact_name" id="contact_name" name="contact_name" placeholder="Full Name" required />
-              you can reach me at <input class="field" v-model="contact_email" id="contact_email" name="contact_email" type="email" placeholder="Email" required/>
-              or <input class="field" v-model="contact_phone" id="contact_phone" name="contact_phone" placeholder="Phone Number"/>
-              and I want to talk about <Textarea class="field textAreaField" v-model="contact_message" id="contact_message" name="contact_message" placeholder="Message"/>
+              you can reach me at <input class="field" v-model="contact_email" @blur="validateInput($event, 'email')" id="contact_email" name="contact_email" type="email" placeholder="Email" required/>
+              or <input class="field" v-model="contact_phone" @blur="validateInput($event, 'phone')" id="contact_phone" name="contact_phone" placeholder="Phone Number"/>
+              and I want to talk about <Textarea class="field textAreaField" v-model="contact_message" id="contact_message" name="contact_message" placeholder="Message" required/>
               P.S. <Textarea class="field textAreaField" v-model="contact_other" id="contact_other" name="contact_other" placeholder="Anything else?"/>
             </p>
             <input class="submitButton" type="submit" value="Send" />
@@ -21,7 +25,7 @@
         </div>
       </div>
     </div>
-  </v-lazy>
+  </div>
 </template>
 
 <style>
@@ -80,10 +84,6 @@
     cursor:pointer;
   }
 
-  .md-field:after {
-    display:none;
-  }
-
 </style>
 
 <script>
@@ -95,15 +95,32 @@
         contact_email:null,
         contact_phone:null,
         contact_message:null,
-        contact_other:null
+        contact_other:null,
+        errorSnackbar: false,
+        errorText: ""
       }
     },
     methods: {
+      validateInput(e, type) {
+
+        const emailRegExp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const phoneRegExp = /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/
+
+        if( type == 'email' && !emailRegExp.test( this.contact_email )  ) {
+            this.errorText = "Please Enter a Valid Email"
+            this.errorSnackbar = true
+            this.contact_email = ""
+        }
+
+        if( type == 'phone' && !phoneRegExp.test( this.contact_phone ) ) {
+            this.errorText = "Please Enter a Valid Phone Number"
+            this.errorSnackbar = true
+            this.contact_phone = ""
+        }
+
+      },
       submitForm: function() {
         console.log('here', this)
-        // if(e.data == null) this[stateProp] = ""
-        // else this[stateProp] += e.data
-        // console.log(this[stateProp], e.data)
       }
     }
   }
