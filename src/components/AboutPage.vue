@@ -1,13 +1,12 @@
 <template>
-  <v-lazy>
     <div id="rootAboutPage">
       <v-row justify="center" align="center" style="width:90%;margin:0px auto 50px;">
-        <v-col cols="2" class="portfolioSeperator"></v-col>
-        <v-col cols="2" class="text-h5 text-center">About Me</v-col>
-        <v-col cols="8" class="portfolioSeperator"></v-col>
+        <v-col xs="2" sm="2" class="portfolioSeperator"></v-col>
+        <v-col xs="8" sm="2" class="text-h5 text-center">About Me</v-col>
+        <v-col xs="2" sm="8" class="portfolioSeperator"></v-col>
       </v-row>
-      <v-row align="center" style="width:90%;margin:0px auto">
-        <v-col cols="6" class="d-flex justify-start">
+      <v-row align="start" style="width:90%;margin:0px auto">
+        <v-col cols="12" xs="12" sm="6" class="d-flex justify-start">
           <div id="aboutImagesContainer">
             <div id="aboutImage" :style="{background:`url('${mainImage}') center/cover no-repeat`}"></div>
             <v-row style="height:75px;">
@@ -15,7 +14,7 @@
             </v-row>
           </div>
         </v-col>
-        <v-col cols="6" class="d-flex justify-end">
+        <v-col cols="12" xs="12" sm="6" class="d-flex justify-end">
           <div id="aboutDescription" class="text-body-2">
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit,
@@ -39,12 +38,10 @@
         </v-col>
       </v-row>
     </div>
-  </v-lazy>
 </template>
 
 <style>
   #rootAboutPage {
-    height:100vh;
     width:100vw;
     max-width:1100px;
     padding:50px 0 0;
@@ -53,6 +50,7 @@
 
   .portfolioSeperator {
     height:2px;
+    max-height:2px;
     background:grey;
     opacity:.5;
   }
@@ -66,12 +64,29 @@
   #aboutImagesContainer {
     width:90%;
     max-width:600px;
+    margin: 0 auto;
   }
 
   #aboutDescription {
     width:100%;
     max-width:600px;
+    max-height:500px;
+    overflow:scroll;
   }
+
+  @media (max-width: 599px) {
+
+    #aboutDescription {
+      text-align:center;
+      max-height: none;
+    }
+
+    .portfolioSeperator {
+      display:none;
+    }
+
+  }
+
 </style>
 
 <script>

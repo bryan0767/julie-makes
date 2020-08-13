@@ -2,8 +2,8 @@
   <div id="rootHomePageGrid">
     <div id="blurOverlay"></div>
     <v-row id="homePageHeaderGrid" dense>
-      <v-col cols="12" class="text-h3 text-center" style="color:#d5d5d5">Juliana Atencia</v-col>
-      <v-col cols="12" class="text-body-2 text-center" style="color:#d5d5d5">
+      <v-col cols="12" class="text-h4 text-sm-h3 text-center" style="color:#d5d5d5">Juliana Atencia</v-col>
+      <v-col cols="12" class="text-caption text-sm-body-2 text-center mainDescription" style="color:#d5d5d5">
         American novelist, literary critic, and scholar best known for his novel Invisible Man,
         which won the National Book Award in 1953.
         He also wrote Shadow and Act, a collection of political,

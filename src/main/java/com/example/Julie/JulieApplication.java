@@ -25,7 +25,9 @@ public Map<String, String> getAll() {
 	    return map;
 	}
 
-// @PostMapping("/sendMessage")
-
+@PostMapping("/sendMessage")
+ public String postMessage() { 
+	return "Dope";
+}
 
 }

@@ -1,18 +1,17 @@
 <template>
-  <div>
+  <v-row>
     <v-snackbar v-model="errorSnackbar">
-      {{ errorText }}
-        <v-btn color="pink" text @click="errorSnackbar = false"> Close </v-btn>
+      {{ errorText }} <v-btn color="green" text @click="errorSnackbar = false">Close</v-btn>
     </v-snackbar>
     <div id="rootContactPage">
       <v-row justify="center" align="center" style="width:90%;margin:0 auto;">
-        <v-col cols="8" class="portfolioSeperator"></v-col>
-        <v-col cols="2" class="text-h5 text-center">Let's Talk</v-col>
-        <v-col cols="2" class="portfolioSeperator"></v-col>
+        <v-col xs="2" sm="8" class="portfolioSeperator"></v-col>
+        <v-col xs="8" sm="2" class="text-h5 text-center">Let's Talk</v-col>
+        <v-col xs="2" sm="2" class="portfolioSeperator"></v-col>
       </v-row>
       <div id="rootContactGrid">
         <div id="innerContactGrid">
-          <form id="contact_form" @submit="submitForm" method="POST" action="/getAll">
+          <form id="contact_form" @submit="submitForm" method="POST" action="/sendMessage">
             <p class="text-h5" style="margin:25px auto 0">
               My Name is <input class="field" v-model="contact_name" id="contact_name" name="contact_name" placeholder="Full Name" required />
               you can reach me at <input class="field" v-model="contact_email" @blur="validateInput($event, 'email')" id="contact_email" name="contact_email" type="email" placeholder="Email" required/>
@@ -25,7 +24,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </v-row>
 </template>
 
 <style>
@@ -41,6 +40,8 @@
     height:2px;
     background:grey;
     opacity:.5;
+    max-height:2px;
+    padding:0;
   }
 
   #innerContactGrid {
@@ -82,6 +83,17 @@
     border-radius:5px;
     float:right;
     cursor:pointer;
+  }
+
+  @media (max-width: 599px) {
+    #innerContactGrid {
+      max-width: 85%;
+      margin:0 auto;
+    }
+
+    .portfolioSeperator {
+      display:none;
+    }
   }
 
 </style>

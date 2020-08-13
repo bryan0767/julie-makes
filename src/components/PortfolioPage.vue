@@ -1,6 +1,6 @@
 <template>
     <v-row id="rootPortfolioGrid">
-      <v-col cols="3" class="sidePortfolio">
+      <v-col cols="3" class="sidePortfolio hidden-sm-and-down">
           <div class="blurOverlay"></div>
           <div class="contactImage"></div>
           <v-col cols="10" class="bottomDescription justify-center text-center">
@@ -30,7 +30,7 @@
             </v-expansion-panel>
           </v-expansion-panels> -->
       </v-col>
-      <v-col cols="9" id="portfolioItemContainer">
+      <v-col xs="12" md="9" id="portfolioItemContainer">
         <div id="portfolioInnerItemContainer" class="d-flex flex-column flex-wrap">
           <div v-for="item in $store.state.Portfolio.items" class="portfolioItem">
             <div class="portfolioItemImage" :style="{ background:`url('${item.thumbnail}') center/cover no-repeat`, position:'relative' }"></div>
@@ -78,7 +78,7 @@
     background: #394d39a3;
   }
 
-  .icon {
+  .iconColor {
     color:white !important;
   }
 
@@ -120,6 +120,14 @@
   .portfolioPageItemDescription {
     margin:5px 0;
     font-size:12px;
+  }
+
+  @media (max-width: 599px) {
+
+    #portfolioItemContainer {
+      height:initial;
+    }
+
   }
 
 </style>
