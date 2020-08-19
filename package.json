@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack && webpack-dev-server --mode development --hot --watch"
+    "build": "webpack && webpack-dev-server --mode development --hot --watch",
+    "prod": "webpack --mode production"
   },
   "author": "Bryan Atencia",
   "license": "ISC",

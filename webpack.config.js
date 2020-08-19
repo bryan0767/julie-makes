@@ -8,8 +8,8 @@ module.exports = {
   entry: './src/app.js',
   mode: "production",
   output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: './bundle.js'
+    path: path.resolve(__dirname, 'src/main/resources/static'),
+    filename: 'bundle.js'
   },
   module: {
     rules: [

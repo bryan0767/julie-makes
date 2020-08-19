@@ -1,16 +1,16 @@
 <template>
     <v-row id="rootPortfolioGrid">
       <v-col cols="3" class="sidePortfolio hidden-sm-and-down">
-          <div class="blurOverlay"></div>
           <div class="contactImage"></div>
           <v-col cols="10" class="bottomDescription justify-center text-center">
-            <div class="text-subtitle-1 iconColor" style="margin:20px auto 0;">Juliana Atencia</div>
-            <div class="text-caption font-italic text-center iconColor" style="margin:10px auto 20px;">Life is to be lived, not controlled; and humanity is won by continuing to play in face of certain defeat.</div>
+            <div class="text-subtitle-1 iconColors" style="margin:20px auto 0;">Juliana Atencia</div>
+            <div class="text-caption font-italic text-center iconColors" style="margin:10px auto 20px;">Life is to be lived,
+              not controlled; and humanity is won by continuing to play in face of certain defeat.</div>
             <div class="d-flex justify-space-around" style="width:75%;margin:0 auto;">
-              <v-icon class="iconColor">mdi-facebook</v-icon>
-              <v-icon class="iconColor">mdi-instagram</v-icon>
-              <v-icon class="iconColor">mdi-linkedin</v-icon>
-              <v-icon class="iconColor">mdi-mail</v-icon>
+              <v-icon class="iconColors">mdi-facebook</v-icon>
+              <v-icon class="iconColors">mdi-instagram</v-icon>
+              <v-icon class="iconColors">mdi-linkedin</v-icon>
+              <v-icon class="iconColors">mdi-mail</v-icon>
             </div>
           </v-col>
           <!-- <v-expansion-panels dark>
@@ -47,6 +47,7 @@
 
   #rootPortfolioGrid {
     width:100vw;
+    background:#dddddd;
   }
 
   .contactImage {
@@ -54,19 +55,23 @@
     width:200px;
     border-radius:50%;
     margin:40px auto 0;
-    background:url('https://pkimgcdn.peekyou.com/0f91777bce73cf296b28e66095fde798.jpeg') center/cover no-repeat
+    background:url('https://pkimgcdn.peekyou.com/0f91777bce73cf296b28e66095fde798.jpeg') center/cover no-repeat;
+    position:relative;
+    transition: transform .1s;
+    transition-timing-function: ease-in;
   }
 
   .bottomDescription {
     margin:0 auto;
+    position:relative;
   }
 
   .sidePortfolio {
     /* background:url("https://c.wallhere.com/photos/fe/65/tunnel_underground_lights_architecture_photography-56850.jpg!d") center / cover no-repeat; */
-    background: #394d39ad;
+    background: #474c47;
     max-height:100vh;
     border-radius:0px;
-    position:relative;
+    transition: all 0.8s ease-in-out;
   }
 
   .blurOverlay {
@@ -78,7 +83,7 @@
     background: #394d39a3;
   }
 
-  .iconColor {
+  .iconColors {
     color:white !important;
   }
 
@@ -92,12 +97,14 @@
     height:200vh;
     overflow-x: scroll;
     background:#dddddd;
+    align-content:flex-start;
       .portfolioItem {
         width:min-content;
         flex:initial;
         padding:20px;
         border:.2px solid #e8e8e8;
         background:white;
+       transition: all 0.8s ease-in-out;
       }
   }
 
@@ -133,7 +140,32 @@
 </style>
 
 <script>
+
+  import ScrollMagic from "scrollmagic"
+  import { TweenMax, TimelineMax } from "gsap"
+
   export default {
-    name:"PortfolioPage"
+    name:"PortfolioPage",
+    mounted: function() {
+      this.addMainScene()
+    },
+    methods: {
+      addMainScene() {
+        let timeline = new TimelineMax()
+        let sideTween = TweenMax.fromTo('.sidePortfolio', 1, { opacity: 0, transform: 'translateX(-100px)' }, { opacity: 1, transform: 'translateX(0px)' })
+        let itemsTween = TweenMax.staggerFromTo($('.portfolioItem'), 1, { opacity: 0, transform: 'translateY(100px)' }, { opacity: 1,transform: 'translateY(0px)' }, .75)
+
+        timeline.add(sideTween, 0).add(itemsTween, 0)
+
+        let mainPortfolioScene = new ScrollMagic.Scene({
+          triggerElement: $("#rootPortfolioGrid")[0],
+          offset: -100,
+          duration:250
+        }).setTween(timeline)
+
+        this.$store.dispatch("Scroll/addScene", mainPortfolioScene)
+
+      }
+    }
   }
 </script>

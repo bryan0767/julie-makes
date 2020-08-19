@@ -5,9 +5,9 @@
     </v-snackbar>
     <div id="rootContactPage">
       <v-row justify="center" align="center" style="width:90%;margin:0 auto;">
-        <v-col xs="2" sm="8" class="portfolioSeperator"></v-col>
-        <v-col xs="8" sm="2" class="text-h5 text-center">Let's Talk</v-col>
-        <v-col xs="2" sm="2" class="portfolioSeperator"></v-col>
+        <v-col xs="2" sm="8" class="portfolioContactSeperator"></v-col>
+        <v-col xs="8" sm="2" class="text-h5 text-center mainContactText">Let's Talk</v-col>
+        <v-col xs="2" sm="2" class="portfolioContactSeperator"></v-col>
       </v-row>
       <div id="rootContactGrid">
         <div id="innerContactGrid">
@@ -36,7 +36,7 @@
     margin:0 auto;
   }
 
-  .portfolioSeperator {
+  .portfolioContactSeperator {
     height:2px;
     background:grey;
     opacity:.5;
@@ -91,7 +91,7 @@
       margin:0 auto;
     }
 
-    .portfolioSeperator {
+    .portfolioContactSeperator {
       display:none;
     }
   }
@@ -99,8 +99,15 @@
 </style>
 
 <script>
+
+  import ScrollMagic from "scrollmagic"
+  import { TweenMax, TimelineMax } from "gsap"
+
   export default {
     name:"ContactPage",
+    mounted: function() {
+      this.addMainScene()
+    },
     data() {
       return {
         contact_name: null,
@@ -113,6 +120,22 @@
       }
     },
     methods: {
+      addMainScene() {
+        let timeline = new TimelineMax()
+        let sepTween = TweenMax.staggerFrom( ".portfolioContactSeperator", 1, { flex:'0 0 1%' } )
+        let mainTextTween = TweenMax.from(".mainContactText", 1, { opacity: 0 })
+        let contactFormTween = TweenMax.fromTo("#contact_form", 1, { opacity: 0, transform:"translateY(100px)" }, { opacity: 1, transform:"translateY(0px)" })
+
+        timeline.add(sepTween, 0).add(mainTextTween, 0).add(contactFormTween)
+
+        let mainContactScene = new ScrollMagic.Scene({
+          triggerElement: $("#rootContactPage")[0],
+          offset: -50,
+          duration: 350
+        }).setTween(timeline)
+
+        this.$store.dispatch("Scroll/addScene", mainContactScene)
+      },
       validateInput(e, type) {
 
         const emailRegExp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

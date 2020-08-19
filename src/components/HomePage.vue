@@ -2,8 +2,8 @@
   <div id="rootHomePageGrid">
     <div id="blurOverlay"></div>
     <v-row id="homePageHeaderGrid" dense>
-      <v-col cols="12" class="text-h4 text-sm-h3 text-center" style="color:#d5d5d5">Juliana Atencia</v-col>
-      <v-col cols="12" class="text-caption text-sm-body-2 text-center mainDescription" style="color:#d5d5d5">
+      <v-col cols="12" class="text-h4 text-sm-h3 text-center mainHeader animateHeader">Juliana Atencia</v-col>
+      <v-col cols="12" class="text-caption text-sm-body-2 text-center mainDescription animateHeader">
         American novelist, literary critic, and scholar best known for his novel Invisible Man,
         which won the National Book Award in 1953.
         He also wrote Shadow and Act, a collection of political,
@@ -28,11 +28,18 @@
     color:#d5d5d5 !important;
   }
 
+  .animateHeader {
+    color:#d5d5d5;
+    opacity:0;
+    position:relative;
+  }
+
   #rootHomePageGrid {
     height:100vh;
     width:100vw;
     position:relative;
     background: url("https://c.wallhere.com/photos/5a/a4/black_blackandwhite_bw_monochrome_white_woman_women_lady-506390.jpg!d") center/cover no-repeat;
+    background-attachment: fixed;
   }
 
   #blurOverlay {
@@ -60,11 +67,19 @@
       padding:0;
   }
 
+  @media (max-width: 599px) {
+
+    #rootHomePageGrid {
+      background-attachment: scroll;
+    }
+
+  }
+
 </style>
 
 <script>
-import ScrollMagic from "scrollmagic"
 
+  import { TweenMax, TimelineMax } from "gsap"
 
   export default {
     name: "HomePage",
@@ -72,8 +87,23 @@ import ScrollMagic from "scrollmagic"
     data(){
       return {}
     },
-    mounted: function() {},
-    methods: {}
+    mounted: function() {
+      this.addMainTimeline()
+    },
+    methods: {
+      addMainTimeline() {
+        let timeline = new TimelineMax({ paused:true });
+
+        timeline.staggerFromTo( $('.animateHeader') , .75,  { opacity: 0, transform: 'translateY(100px)' }, { opacity: 1, transform:'translateY(0)' }, 1)
+                .from("#homePageHeaderDivider", .75, { flex: '0 0 1%'})
+                .staggerFromTo($('.iconColor'), .75, { opacity:0}, { opacity: 1 }, .25)
+                .play()
+                .eventCallback("onComplete", () => {
+                  this.$store.commit("Home/showFab", true)
+                })
+
+      }
+    }
   }
 
 </script>

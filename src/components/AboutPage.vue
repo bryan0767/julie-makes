@@ -1,8 +1,8 @@
 <template>
     <div id="rootAboutPage">
-      <v-row justify="center" align="center" style="width:90%;margin:0px auto 50px;">
+      <v-row justify="center" align="center" class="aboutHeaderRow">
         <v-col xs="2" sm="2" class="portfolioSeperator"></v-col>
-        <v-col xs="8" sm="2" class="text-h5 text-center">About Me</v-col>
+        <v-col xs="8" sm="2" class="text-h5 text-center mainText">About Me</v-col>
         <v-col xs="2" sm="8" class="portfolioSeperator"></v-col>
       </v-row>
       <v-row align="start" style="width:90%;margin:0px auto">
@@ -55,10 +55,16 @@
     opacity:.5;
   }
 
+  .aboutHeaderRow {
+    width:90%;
+    margin:0px auto 50px !important;
+  }
+
   #aboutImage {
     height:350px;
     width:100%;
     margin:10px auto;
+    transition: all .5s ease-in;
   }
 
   #aboutImagesContainer {
@@ -85,13 +91,24 @@
       display:none;
     }
 
+    .aboutHeaderRow {
+      margin: 0 auto 20px !important;
+    }
+
   }
 
 </style>
 
 <script>
+
+  import ScrollMagic from "scrollmagic"
+  import { TweenMax, TimelineMax } from "gsap"
+
   export default {
     name:"AboutPage",
+    mounted: function() {
+      this.addMainScene()
+    },
     data() {
       return {
         mainImage: "https://i.pinimg.com/originals/c7/35/33/c735332adc5340082464f0605404275d.jpg",
@@ -107,6 +124,23 @@
       updateImage( e, image, ind ) {
         this.images[ind] = this.mainImage
         this.mainImage = image
+      },
+      addMainScene() {
+        let timeline = new TimelineMax()
+        let sepTween = TweenMax.staggerFrom( ".portfolioSeperator", 1, { flex:'0 0 1%' } )
+        let mainTextTween = TweenMax.from(".mainText", 1, { opacity: 0 })
+        let aboutImagesTween = TweenMax.fromTo("#aboutImagesContainer", 1, { opacity: 0, transform:"translateY(100px)" }, { opacity: 1, transform:"translateY(0px)" })
+        let aboutDescriptionTween = TweenMax.fromTo("#aboutDescription", 1, { opacity: 0, transform:"translateX(100px)" }, { opacity: 1, transform:"translateX(0px)" })
+
+        timeline.add(sepTween, 0).add(mainTextTween, 0).add(aboutImagesTween).add(aboutDescriptionTween)
+
+        let mainAboutScene = new ScrollMagic.Scene({
+          triggerElement: $("#rootAboutPage")[0],
+          offset: -50,
+          duration: 350
+        }).setTween(timeline)
+
+        this.$store.dispatch("Scroll/addScene", mainAboutScene)
       }
     }
   }
