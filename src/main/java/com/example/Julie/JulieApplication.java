@@ -12,22 +12,22 @@ import java.util.*;
 @RestController
 public class JulieApplication {
 
-public static void main(String[] args) {
-	SpringApplication.run(JulieApplication.class, args);
-}
-
-@GetMapping("/getAll")
-public Map<String, String> getAll() {
-		System.out.println("noone said this would be easy");
-	    HashMap<String, String> map = new HashMap<>();
-	    map.put("name", "Bryan Atencia");
-	    map.put("job", "Dev");
-	    return map;
+	public static void main(String[] args) {
+		SpringApplication.run(JulieApplication.class, args);
 	}
 
-@PostMapping("/sendMessage")
- public String postMessage() {
-	return "Dope";
-}
+	@GetMapping("/getAll")
+	public Map<String, String> getAll() {
+			System.out.println("noone said this would be easy");
+		    HashMap<String, String> map = new HashMap<>();
+		    map.put("name", "Bryan Atencia");
+		    map.put("job", "Dev");
+		    return map;
+		}
+
+	@PostMapping("/sendMessage")
+	 public String postMessage() {
+		return "Dope";
+	}
 
 }

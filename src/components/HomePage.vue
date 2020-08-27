@@ -1,8 +1,7 @@
 <template>
   <div id="rootHomePageGrid">
-    <div id="blurOverlay"></div>
     <v-row id="homePageHeaderGrid" dense>
-      <v-col cols="12" class="text-h4 text-sm-h3 text-center mainHeader animateHeader">Juliana Atencia</v-col>
+      <v-col cols="12" class="text-h4 text-sm-h3 text-center mainHeader animateHeader">Julie Atencia</v-col>
       <v-col cols="12" class="text-caption text-sm-body-2 text-center mainDescription animateHeader">
         American novelist, literary critic, and scholar best known for his novel Invisible Man,
         which won the National Book Award in 1953.
@@ -25,11 +24,13 @@
 <style lang="scss">
 
   .iconColor {
-    color:#d5d5d5 !important;
+    // color:#d5d5d5 !important;
+    color:black !important;
   }
 
   .animateHeader {
-    color:#d5d5d5;
+    // color:#d5d5d5;
+    color:black !important;
     opacity:0;
     position:relative;
   }
@@ -38,16 +39,9 @@
     height:100vh;
     width:100vw;
     position:relative;
-    background: url("https://c.wallhere.com/photos/5a/a4/black_blackandwhite_bw_monochrome_white_woman_women_lady-506390.jpg!d") center/cover no-repeat;
+    // background: url("https://c.wallhere.com/photos/5a/a4/black_blackandwhite_bw_monochrome_white_woman_women_lady-506390.jpg!d") center/cover no-repeat;
+    background: url("https://thumbs.dreamstime.com/b/photographer-desk-photographer-workplace-photographer-scrapbook-tradional-photography-black-white-photography-flat-lay-desktop-76692832.jpg") center/cover no-repeat;
     background-attachment: fixed;
-  }
-
-  #blurOverlay {
-    height: 100vh;
-    width: 100vw;
-    filter: blur(1000px);
-    z-index: 1;
-    background: #394d39ad;
   }
 
   #homePageHeaderGrid {
@@ -61,7 +55,8 @@
   }
 
   #homePageHeaderDivider {
-      background:#cbc9c9;
+      // background:#cbc9c9;
+      background:black;
       height:3px;
       margin:20px auto;
       padding:0;
@@ -84,9 +79,6 @@
   export default {
     name: "HomePage",
     components: {},
-    data(){
-      return {}
-    },
     mounted: function() {
       this.addMainTimeline()
     },

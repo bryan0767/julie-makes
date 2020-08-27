@@ -11,7 +11,12 @@ export default {
         content:`Lorem ipsum dolor sit
           amet consectetur adipisicing elit. Ratione dolor nemo consectetur possimus
           vero libero quo dignissimos qui sint odit.`,
-        date:"today"
+        date:"today",
+        articleData: {
+          heroImage: "https://process.files.digication.com/ARxnxR7NcSkafRNfkHIuVz/security=policy:eyJoYW5kbGUiOiJqM3RCdGljM1JnQ2FoRE5PR0ZSNiIsImNhbGwiOlsicmVhZCIsImNvbnZlcnQiXSwiZXhwaXJ5IjoxNTk4NjQxNDkwfQ==,signature:54e8c47d213b88bbfba211d5c4da7dbac77328e896cfa964e72e5ff65e253fbd/resize=fit:max,width:1920/j3tBtic3RgCahDNOGFR6",
+          content: "Interning at Chicago Agent Magazine taught me a lot about the print process and allowed me to write about diverse issues such as the current uncertainty regarding Hispanic homeownership rates during COVID-19. Writing this article was really eye-opening in regards to how communities are being impacted by the current pandemic. I conducted several interviews with significant Hispanic realtors about the current situation and how they predict Hispanic homeowners will recover. This not only helped strengthen my news-writing but also allowed me to report on important current events.",
+          link: "https://chicagoagentmagazine.com/2020/05/22/hispanic-homeownership-reached-historic-highs-before-covid-19-what-now/"
+        }
       },
       {
         id:"1",
@@ -20,7 +25,12 @@ export default {
         category:"Traveling",
         content:`Lorem ipsum dolor sit
           amet consectetur adipisicing elit.`,
-        date:"yesterday"
+        date:"yesterday",
+        articleData: {
+          heroImage: "https://process.files.digication.com/ARxnxR7NcSkafRNfkHIuVz/security=policy:eyJoYW5kbGUiOiJqM3RCdGljM1JnQ2FoRE5PR0ZSNiIsImNhbGwiOlsicmVhZCIsImNvbnZlcnQiXSwiZXhwaXJ5IjoxNTk4NjQxNDkwfQ==,signature:54e8c47d213b88bbfba211d5c4da7dbac77328e896cfa964e72e5ff65e253fbd/resize=fit:max,width:1920/j3tBtic3RgCahDNOGFR6",
+          content: "Interning at Chicago Agent Magazine taught me a lot about the print process and allowed me to write about diverse issues such as the current uncertainty regarding Hispanic homeownership rates during COVID-19. Writing this article was really eye-opening in regards to how communities are being impacted by the current pandemic. I conducted several interviews with significant Hispanic realtors about the current situation and how they predict Hispanic homeowners will recover. This not only helped strengthen my news-writing but also allowed me to report on important current events.",
+          link: "https://chicagoagentmagazine.com/2020/05/22/hispanic-homeownership-reached-historic-highs-before-covid-19-what-now/"
+        }
       },
       {
         id:"2",
@@ -30,7 +40,12 @@ export default {
         content:`Lorem ipsum dolor sit
           amet consectetur adipisicing elit. Ratione dolor nemo consectetur possimus
           vero libero quo dignissimos qui sint odit, quod deserunt?`,
-        date:"yesterday"
+        date:"yesterday",
+        articleData: {
+          heroImage: "https://process.files.digication.com/ARxnxR7NcSkafRNfkHIuVz/security=policy:eyJoYW5kbGUiOiJqM3RCdGljM1JnQ2FoRE5PR0ZSNiIsImNhbGwiOlsicmVhZCIsImNvbnZlcnQiXSwiZXhwaXJ5IjoxNTk4NjQxNDkwfQ==,signature:54e8c47d213b88bbfba211d5c4da7dbac77328e896cfa964e72e5ff65e253fbd/resize=fit:max,width:1920/j3tBtic3RgCahDNOGFR6",
+          content: "Interning at Chicago Agent Magazine taught me a lot about the print process and allowed me to write about diverse issues such as the current uncertainty regarding Hispanic homeownership rates during COVID-19. Writing this article was really eye-opening in regards to how communities are being impacted by the current pandemic. I conducted several interviews with significant Hispanic realtors about the current situation and how they predict Hispanic homeowners will recover. This not only helped strengthen my news-writing but also allowed me to report on important current events.",
+          link: "https://chicagoagentmagazine.com/2020/05/22/hispanic-homeownership-reached-historic-highs-before-covid-19-what-now/"
+        }
       },
       {
         id:"3",
@@ -39,7 +54,12 @@ export default {
         category:"Living, Fitness",
         content:`Lorem ipsum dolor sit
           amet consectetur adipisicing elit.`,
-        date:"yesterday"
+        date:"yesterday",
+        articleData: {
+          heroImage: "https://process.files.digication.com/ARxnxR7NcSkafRNfkHIuVz/security=policy:eyJoYW5kbGUiOiJqM3RCdGljM1JnQ2FoRE5PR0ZSNiIsImNhbGwiOlsicmVhZCIsImNvbnZlcnQiXSwiZXhwaXJ5IjoxNTk4NjQxNDkwfQ==,signature:54e8c47d213b88bbfba211d5c4da7dbac77328e896cfa964e72e5ff65e253fbd/resize=fit:max,width:1920/j3tBtic3RgCahDNOGFR6",
+          content: "Interning at Chicago Agent Magazine taught me a lot about the print process and allowed me to write about diverse issues such as the current uncertainty regarding Hispanic homeownership rates during COVID-19. Writing this article was really eye-opening in regards to how communities are being impacted by the current pandemic. I conducted several interviews with significant Hispanic realtors about the current situation and how they predict Hispanic homeowners will recover. This not only helped strengthen my news-writing but also allowed me to report on important current events.",
+          link: "https://chicagoagentmagazine.com/2020/05/22/hispanic-homeownership-reached-historic-highs-before-covid-19-what-now/"
+        }
       },
       {
         id:"4",
@@ -48,7 +68,12 @@ export default {
         category:"Real Estate",
         content:`Lorem ipsum dolor sit
           amet consectetur adipisicing elit.`,
-        date:"yesterday"
+        date:"yesterday",
+        articleData: {
+          heroImage: "https://process.files.digication.com/ARxnxR7NcSkafRNfkHIuVz/security=policy:eyJoYW5kbGUiOiJqM3RCdGljM1JnQ2FoRE5PR0ZSNiIsImNhbGwiOlsicmVhZCIsImNvbnZlcnQiXSwiZXhwaXJ5IjoxNTk4NjQxNDkwfQ==,signature:54e8c47d213b88bbfba211d5c4da7dbac77328e896cfa964e72e5ff65e253fbd/resize=fit:max,width:1920/j3tBtic3RgCahDNOGFR6",
+          content: "Interning at Chicago Agent Magazine taught me a lot about the print process and allowed me to write about diverse issues such as the current uncertainty regarding Hispanic homeownership rates during COVID-19. Writing this article was really eye-opening in regards to how communities are being impacted by the current pandemic. I conducted several interviews with significant Hispanic realtors about the current situation and how they predict Hispanic homeowners will recover. This not only helped strengthen my news-writing but also allowed me to report on important current events.",
+          link: "https://chicagoagentmagazine.com/2020/05/22/hispanic-homeownership-reached-historic-highs-before-covid-19-what-now/"
+        }
       },
       {
         id:"5",
@@ -56,7 +81,12 @@ export default {
         header:"15 best places to eat in New Orleans",
         category:"Food",
         content:`Lorem ipsum dolor sit.`,
-        date:"yesterday"
+        date:"yesterday",
+        articleData: {
+          heroImage: "https://process.files.digication.com/ARxnxR7NcSkafRNfkHIuVz/security=policy:eyJoYW5kbGUiOiJqM3RCdGljM1JnQ2FoRE5PR0ZSNiIsImNhbGwiOlsicmVhZCIsImNvbnZlcnQiXSwiZXhwaXJ5IjoxNTk4NjQxNDkwfQ==,signature:54e8c47d213b88bbfba211d5c4da7dbac77328e896cfa964e72e5ff65e253fbd/resize=fit:max,width:1920/j3tBtic3RgCahDNOGFR6",
+          content: "Interning at Chicago Agent Magazine taught me a lot about the print process and allowed me to write about diverse issues such as the current uncertainty regarding Hispanic homeownership rates during COVID-19. Writing this article was really eye-opening in regards to how communities are being impacted by the current pandemic. I conducted several interviews with significant Hispanic realtors about the current situation and how they predict Hispanic homeowners will recover. This not only helped strengthen my news-writing but also allowed me to report on important current events.",
+          link: "https://chicagoagentmagazine.com/2020/05/22/hispanic-homeownership-reached-historic-highs-before-covid-19-what-now/"
+        }
       },
       {
         id:"6",
@@ -66,7 +96,12 @@ export default {
         content:`Lorem ipsum dolor sit
           amet consectetur adipisicing elit. Ratione dolor nemo consectetur possimus
           vero libero quo dignissimos qui sint odit.`,
-        date:"yesterday"
+        date:"yesterday",
+        articleData: {
+          heroImage: "https://process.files.digication.com/ARxnxR7NcSkafRNfkHIuVz/security=policy:eyJoYW5kbGUiOiJqM3RCdGljM1JnQ2FoRE5PR0ZSNiIsImNhbGwiOlsicmVhZCIsImNvbnZlcnQiXSwiZXhwaXJ5IjoxNTk4NjQxNDkwfQ==,signature:54e8c47d213b88bbfba211d5c4da7dbac77328e896cfa964e72e5ff65e253fbd/resize=fit:max,width:1920/j3tBtic3RgCahDNOGFR6",
+          content: "Interning at Chicago Agent Magazine taught me a lot about the print process and allowed me to write about diverse issues such as the current uncertainty regarding Hispanic homeownership rates during COVID-19. Writing this article was really eye-opening in regards to how communities are being impacted by the current pandemic. I conducted several interviews with significant Hispanic realtors about the current situation and how they predict Hispanic homeowners will recover. This not only helped strengthen my news-writing but also allowed me to report on important current events.",
+          link: "https://chicagoagentmagazine.com/2020/05/22/hispanic-homeownership-reached-historic-highs-before-covid-19-what-now/"
+        }
       },
       {
         id:"7",
@@ -76,7 +111,12 @@ export default {
         content:`Lorem ipsum dolor sit
           amet consectetur adipisicing elit. Ratione dolor nemo consectetur possimus
           vero libero quo dignissimos qui sint odit.`,
-        date:"yesterday"
+        date:"yesterday",
+        articleData: {
+          heroImage: "https://process.files.digication.com/ARxnxR7NcSkafRNfkHIuVz/security=policy:eyJoYW5kbGUiOiJqM3RCdGljM1JnQ2FoRE5PR0ZSNiIsImNhbGwiOlsicmVhZCIsImNvbnZlcnQiXSwiZXhwaXJ5IjoxNTk4NjQxNDkwfQ==,signature:54e8c47d213b88bbfba211d5c4da7dbac77328e896cfa964e72e5ff65e253fbd/resize=fit:max,width:1920/j3tBtic3RgCahDNOGFR6",
+          content: "Interning at Chicago Agent Magazine taught me a lot about the print process and allowed me to write about diverse issues such as the current uncertainty regarding Hispanic homeownership rates during COVID-19. Writing this article was really eye-opening in regards to how communities are being impacted by the current pandemic. I conducted several interviews with significant Hispanic realtors about the current situation and how they predict Hispanic homeowners will recover. This not only helped strengthen my news-writing but also allowed me to report on important current events.",
+          link: "https://chicagoagentmagazine.com/2020/05/22/hispanic-homeownership-reached-historic-highs-before-covid-19-what-now/"
+        }
       },
       {
         id:"8",
@@ -85,7 +125,12 @@ export default {
         category:"Cooking, Food",
         content:`Lorem ipsum dolor sit
           amet consectetur adipisicing elit?`,
-        date:"yesterday"
+        date:"yesterday",
+        articleData: {
+          heroImage: "https://process.files.digication.com/ARxnxR7NcSkafRNfkHIuVz/security=policy:eyJoYW5kbGUiOiJqM3RCdGljM1JnQ2FoRE5PR0ZSNiIsImNhbGwiOlsicmVhZCIsImNvbnZlcnQiXSwiZXhwaXJ5IjoxNTk4NjQxNDkwfQ==,signature:54e8c47d213b88bbfba211d5c4da7dbac77328e896cfa964e72e5ff65e253fbd/resize=fit:max,width:1920/j3tBtic3RgCahDNOGFR6",
+          content: "Interning at Chicago Agent Magazine taught me a lot about the print process and allowed me to write about diverse issues such as the current uncertainty regarding Hispanic homeownership rates during COVID-19. Writing this article was really eye-opening in regards to how communities are being impacted by the current pandemic. I conducted several interviews with significant Hispanic realtors about the current situation and how they predict Hispanic homeowners will recover. This not only helped strengthen my news-writing but also allowed me to report on important current events.",
+          link: "https://chicagoagentmagazine.com/2020/05/22/hispanic-homeownership-reached-historic-highs-before-covid-19-what-now/"
+        }
       },
       {
         id:"9",
@@ -94,7 +139,12 @@ export default {
         category:"Lifestyle",
         content:`Lorem ipsum dolor sit
           amet consectetur adipisicing elit. Ratione dolor nemo.`,
-        date:"yesterday"
+        date:"yesterday",
+        articleData: {
+          heroImage: "https://process.files.digication.com/ARxnxR7NcSkafRNfkHIuVz/security=policy:eyJoYW5kbGUiOiJqM3RCdGljM1JnQ2FoRE5PR0ZSNiIsImNhbGwiOlsicmVhZCIsImNvbnZlcnQiXSwiZXhwaXJ5IjoxNTk4NjQxNDkwfQ==,signature:54e8c47d213b88bbfba211d5c4da7dbac77328e896cfa964e72e5ff65e253fbd/resize=fit:max,width:1920/j3tBtic3RgCahDNOGFR6",
+          content: "Interning at Chicago Agent Magazine taught me a lot about the print process and allowed me to write about diverse issues such as the current uncertainty regarding Hispanic homeownership rates during COVID-19. Writing this article was really eye-opening in regards to how communities are being impacted by the current pandemic. I conducted several interviews with significant Hispanic realtors about the current situation and how they predict Hispanic homeowners will recover. This not only helped strengthen my news-writing but also allowed me to report on important current events.",
+          link: "https://chicagoagentmagazine.com/2020/05/22/hispanic-homeownership-reached-historic-highs-before-covid-19-what-now/"
+        }
       },
       {
         id:"10",
@@ -104,7 +154,12 @@ export default {
         content:`Lorem ipsum dolor sit
           amet consectetur adipisicing elit. Ratione dolor nemo consectetur possimus
           vero libero quo dignissimos qui?`,
-        date:"today"
+        date:"today",
+        articleData: {
+          heroImage: "https://process.files.digication.com/ARxnxR7NcSkafRNfkHIuVz/security=policy:eyJoYW5kbGUiOiJqM3RCdGljM1JnQ2FoRE5PR0ZSNiIsImNhbGwiOlsicmVhZCIsImNvbnZlcnQiXSwiZXhwaXJ5IjoxNTk4NjQxNDkwfQ==,signature:54e8c47d213b88bbfba211d5c4da7dbac77328e896cfa964e72e5ff65e253fbd/resize=fit:max,width:1920/j3tBtic3RgCahDNOGFR6",
+          content: "Interning at Chicago Agent Magazine taught me a lot about the print process and allowed me to write about diverse issues such as the current uncertainty regarding Hispanic homeownership rates during COVID-19. Writing this article was really eye-opening in regards to how communities are being impacted by the current pandemic. I conducted several interviews with significant Hispanic realtors about the current situation and how they predict Hispanic homeowners will recover. This not only helped strengthen my news-writing but also allowed me to report on important current events.",
+          link: "https://chicagoagentmagazine.com/2020/05/22/hispanic-homeownership-reached-historic-highs-before-covid-19-what-now/"
+        }
       },
       {
         id:"11",
@@ -114,7 +169,12 @@ export default {
         content:`Lorem ipsum dolor sit
           amet consectetur adipisicing elit. Ratione dolor nemo consectetur possimus
           vero libero quo dignissimos.`,
-        date:"yesterday"
+        date:"yesterday",
+        articleData: {
+          heroImage: "https://process.files.digication.com/ARxnxR7NcSkafRNfkHIuVz/security=policy:eyJoYW5kbGUiOiJqM3RCdGljM1JnQ2FoRE5PR0ZSNiIsImNhbGwiOlsicmVhZCIsImNvbnZlcnQiXSwiZXhwaXJ5IjoxNTk4NjQxNDkwfQ==,signature:54e8c47d213b88bbfba211d5c4da7dbac77328e896cfa964e72e5ff65e253fbd/resize=fit:max,width:1920/j3tBtic3RgCahDNOGFR6",
+          content: "Interning at Chicago Agent Magazine taught me a lot about the print process and allowed me to write about diverse issues such as the current uncertainty regarding Hispanic homeownership rates during COVID-19. Writing this article was really eye-opening in regards to how communities are being impacted by the current pandemic. I conducted several interviews with significant Hispanic realtors about the current situation and how they predict Hispanic homeowners will recover. This not only helped strengthen my news-writing but also allowed me to report on important current events.",
+          link: "https://chicagoagentmagazine.com/2020/05/22/hispanic-homeownership-reached-historic-highs-before-covid-19-what-now/"
+        }
       },
       {
         id:"12",
@@ -125,6 +185,11 @@ export default {
           amet consectetur adipisicing elit. Ratione dolor nemo consectetur possimus
           vero libero quo dignissimos qui sint odit.`,
         date:"yesterday",
+        articleData: {
+          heroImage: "https://process.files.digication.com/ARxnxR7NcSkafRNfkHIuVz/security=policy:eyJoYW5kbGUiOiJqM3RCdGljM1JnQ2FoRE5PR0ZSNiIsImNhbGwiOlsicmVhZCIsImNvbnZlcnQiXSwiZXhwaXJ5IjoxNTk4NjQxNDkwfQ==,signature:54e8c47d213b88bbfba211d5c4da7dbac77328e896cfa964e72e5ff65e253fbd/resize=fit:max,width:1920/j3tBtic3RgCahDNOGFR6",
+          content: "Interning at Chicago Agent Magazine taught me a lot about the print process and allowed me to write about diverse issues such as the current uncertainty regarding Hispanic homeownership rates during COVID-19. Writing this article was really eye-opening in regards to how communities are being impacted by the current pandemic. I conducted several interviews with significant Hispanic realtors about the current situation and how they predict Hispanic homeowners will recover. This not only helped strengthen my news-writing but also allowed me to report on important current events.",
+          link: "https://chicagoagentmagazine.com/2020/05/22/hispanic-homeownership-reached-historic-highs-before-covid-19-what-now/"
+        }
       }
   ]
   },

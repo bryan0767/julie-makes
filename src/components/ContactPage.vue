@@ -72,7 +72,8 @@
   }
 
   .submitButton {
-    background: #6b7b6b;
+    /* background: #6b7b6b; */
+    background: #eab4ad;
     color:white;
     outline: none;
     font-size: 1.125rem;
