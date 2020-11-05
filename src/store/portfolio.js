@@ -191,7 +191,7 @@ export default {
           link: "https://chicagoagentmagazine.com/2020/05/22/hispanic-homeownership-reached-historic-highs-before-covid-19-what-now/"
         }
       }
-  ]
+  ],
   },
   mutations: {
     addItem(state, data) {

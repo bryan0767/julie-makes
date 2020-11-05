@@ -1,25 +1,47 @@
 <template>
-  <div id="rootHomePageGrid">
+  <div id="rootHomePageGrid" :style="{background:`url('${data.heroimage}') center/cover no-repeat`}">
     <v-row id="homePageHeaderGrid" dense>
-      <v-col cols="12" class="text-h4 text-sm-h3 text-center mainHeader animateHeader">Julie Atencia</v-col>
+      <v-col cols="12" class="text-h4 text-sm-h3 text-center mainHeader animateHeader">{{ data.header }}</v-col>
       <v-col cols="12" class="text-caption text-sm-body-2 text-center mainDescription animateHeader">
-        American novelist, literary critic, and scholar best known for his novel Invisible Man,
-        which won the National Book Award in 1953.
-        He also wrote Shadow and Act, a collection of political,
-        social and critical essays, and Going to the Territory.
+        {{ data.description }}
       </v-col>
       <v-col cols="10" id="homePageHeaderDivider"></v-col>
       <v-col cols="12" id="homePageHeaderIconGrid">
         <v-row style="width:70%;margin:0 auto" justify="space-around">
-          <v-icon class="iconColor">mdi-facebook</v-icon>
-          <v-icon class="iconColor">mdi-instagram</v-icon>
-          <v-icon class="iconColor">mdi-linkedin</v-icon>
-          <v-icon class="iconColor">mdi-mail</v-icon>
+          <v-icon v-for="icon in data.icons" :class="icon.className">{{ icon.src }}</v-icon>
         </v-row>
       </v-col>
     </v-row>
   </div>
 </template>
+<script>
+
+  import { TweenMax, TimelineMax } from "gsap"
+
+  export default {
+    name: "HomePage",
+    components: {},
+    props: [ "data" ],
+    mounted: function() {
+      this.addMainTimeline();
+    },
+    methods: {
+      addMainTimeline() {
+        let timeline = new TimelineMax({ paused:true });
+
+        timeline.staggerFromTo( $('.animateHeader') , .75,  { opacity: 0, transform: 'translateY(100px)' }, { opacity: 1, transform:'translateY(0)' }, 1)
+                .from("#homePageHeaderDivider", .75, { flex: '0 0 1%'})
+                .staggerFromTo($('.iconColor'), .75, { opacity:0}, { opacity: 1 }, .25)
+                .play()
+                .eventCallback("onComplete", () => {
+                  this.$store.commit("Home/showFab", true)
+                })
+
+      }
+    }
+  }
+
+</script>
 
 <style lang="scss">
 
@@ -39,9 +61,7 @@
     height:100vh;
     width:100vw;
     position:relative;
-    // background: url("https://c.wallhere.com/photos/5a/a4/black_blackandwhite_bw_monochrome_white_woman_women_lady-506390.jpg!d") center/cover no-repeat;
-    background: url("https://thumbs.dreamstime.com/b/photographer-desk-photographer-workplace-photographer-scrapbook-tradional-photography-black-white-photography-flat-lay-desktop-76692832.jpg") center/cover no-repeat;
-    background-attachment: fixed;
+    background-attachment: fixed !important;
   }
 
   #homePageHeaderGrid {
@@ -71,31 +91,3 @@
   }
 
 </style>
-
-<script>
-
-  import { TweenMax, TimelineMax } from "gsap"
-
-  export default {
-    name: "HomePage",
-    components: {},
-    mounted: function() {
-      this.addMainTimeline()
-    },
-    methods: {
-      addMainTimeline() {
-        let timeline = new TimelineMax({ paused:true });
-
-        timeline.staggerFromTo( $('.animateHeader') , .75,  { opacity: 0, transform: 'translateY(100px)' }, { opacity: 1, transform:'translateY(0)' }, 1)
-                .from("#homePageHeaderDivider", .75, { flex: '0 0 1%'})
-                .staggerFromTo($('.iconColor'), .75, { opacity:0}, { opacity: 1 }, .25)
-                .play()
-                .eventCallback("onComplete", () => {
-                  this.$store.commit("Home/showFab", true)
-                })
-
-      }
-    }
-  }
-
-</script>

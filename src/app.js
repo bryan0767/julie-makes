@@ -8,16 +8,17 @@ import "scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap";
 import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
 
 import App from "./components/App.vue"
+import Admin from "./components/Admin.vue"
 import { store } from "./store"
 
 Vue.use(VueRouter);
 Vue.use(Vuetify)
 
-
 const vuetify = new Vuetify({})
 
 const routes = [
-  {path: "/", component: App}
+  { path: "/", component: App },
+  { path:"/admin", component: Admin }
 ]
 
 const router = new VueRouter({

@@ -8,6 +8,7 @@ import Portfolio from "./portfolio.js"
 import About from "./about.js"
 import Contact from "./contact.js"
 import Home from "./home.js"
+import Admin from "./admin.js"
 
 export const store = new Vuex.Store({
   modules: {
@@ -15,6 +16,7 @@ export const store = new Vuex.Store({
     Portfolio,
     About,
     Contact,
-    Home
+    Home,
+    Admin
   }
 })

@@ -1,16 +1,12 @@
 <template>
     <v-row id="rootPortfolioGrid">
       <v-col cols="3" class="sidePortfolio hidden-sm-and-down">
-          <div class="contactImage"></div>
+          <div class="contactImage" :style="{background:`url('${data['heroimage']}') center/cover no-repeat`}"></div>
           <v-col cols="10" class="bottomDescription justify-center text-center">
-            <div class="text-subtitle-1 iconColors" style="margin:20px auto 0;">Juliana Atencia</div>
-            <div class="text-caption font-italic text-center iconColors" style="margin:10px auto 20px;">Life is to be lived,
-              not controlled; and humanity is won by continuing to play in face of certain defeat.</div>
+            <div class="text-subtitle-1 iconColors" style="margin:20px auto 0;">{{ data['header'] }}</div>
+            <div class="text-caption font-italic text-center iconColors" style="margin:10px auto 20px;">{{ data['description'] }}</div>
             <div class="d-flex justify-space-around" style="width:75%;margin:0 auto;">
-              <v-icon class="iconColors">mdi-facebook</v-icon>
-              <v-icon class="iconColors">mdi-instagram</v-icon>
-              <v-icon class="iconColors">mdi-linkedin</v-icon>
-              <v-icon class="iconColors">mdi-mail</v-icon>
+              <v-icon v-for="icon in data['icons']" :class="icon.className">{{ icon.src }}</v-icon>
             </div>
           </v-col>
           <!-- <v-expansion-panels dark>
@@ -62,10 +58,11 @@
 
   export default {
     name:"PortfolioPage",
+    props:["data"],
     data() {
       return {
+        article: {},
         showArticles: true,
-        article: {}
       }
     },
     mounted: function() {
@@ -147,7 +144,7 @@
     width:200px;
     border-radius:50%;
     margin:40px auto 0;
-    background:url('https://pkimgcdn.peekyou.com/0f91777bce73cf296b28e66095fde798.jpeg') center/cover no-repeat;
+    /* background:url('https://pkimgcdn.peekyou.com/0f91777bce73cf296b28e66095fde798.jpeg') center/cover no-repeat; */
     position:relative;
     transition: transform .1s;
     transition-timing-function: ease-in;

@@ -1,12 +1,12 @@
 <template>
   <v-row>
     <v-snackbar v-model="errorSnackbar">
-      {{ errorText }} <v-btn color="green" text @click="errorSnackbar = false">Close</v-btn>
+      {{ errorText }} <v-btn color="pink lighten-3" text @click="errorSnackbar = false">Close</v-btn>
     </v-snackbar>
     <div id="rootContactPage">
       <v-row justify="center" align="center" style="width:90%;margin:0 auto;">
         <v-col xs="2" sm="8" class="portfolioContactSeperator"></v-col>
-        <v-col xs="8" sm="2" class="text-h5 text-center mainContactText">Let's Talk</v-col>
+        <v-col xs="8" sm="2" class="text-h5 text-center mainContactText">{{ data['header'] }}</v-col>
         <v-col xs="2" sm="2" class="portfolioContactSeperator"></v-col>
       </v-row>
       <div id="rootContactGrid">
@@ -16,8 +16,8 @@
               My Name is <input class="field" v-model="contact_name" id="contact_name" name="contact_name" placeholder="Full Name" required />
               you can reach me at <input class="field" v-model="contact_email" @blur="validateInput($event, 'email')" id="contact_email" name="contact_email" type="email" placeholder="Email" required/>
               or <input class="field" v-model="contact_phone" @blur="validateInput($event, 'phone')" id="contact_phone" name="contact_phone" placeholder="Phone Number"/>
-              and I want to talk about <Textarea class="field textAreaField" v-model="contact_message" id="contact_message" name="contact_message" placeholder="Message" required/>
-              P.S. <Textarea class="field textAreaField" v-model="contact_other" id="contact_other" name="contact_other" placeholder="Anything else?"/>
+              and I want to talk about <textarea class="field textAreaField" v-model="contact_message" id="contact_message" name="contact_message" placeholder="Message" required/>
+              P.S. <textarea class="field textAreaField" v-model="contact_other" id="contact_other" name="contact_other" placeholder="Anything else?"/>
             </p>
             <input class="submitButton" type="submit" value="Send" />
           </form>
@@ -109,6 +109,7 @@
     mounted: function() {
       this.addMainScene()
     },
+    props:["data"],
     data() {
       return {
         contact_name: null,
@@ -155,8 +156,23 @@
         }
 
       },
-      submitForm: function() {
-        console.log('here', this)
+      submitForm(e) {
+        e.preventDefault()
+        $.ajax({
+            url: '/sendMessage',
+            type: 'POST',
+            dataType: 'JSON',
+            data: $('#contact_form').serialize()
+        }).always(() => {
+          this.contact_name = ""
+          this.contact_email = ""
+          this.contact_phone = ""
+          this.contact_message = ""
+          this.contact_other = ""
+
+          this.errorText = "Thanks, I'll Get back to you soon!"
+          this.errorSnackbar = true
+        })
       }
     }
   }

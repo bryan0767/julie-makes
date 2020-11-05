@@ -3,7 +3,7 @@ import ScrollMagic from "scrollmagic"
 export default {
   namespaced:true,
   state: {
-    showFab:false
+    showFab:false,
   },
   mutations: {
     showFab(state, payload) {

@@ -1,10 +1,11 @@
 <template>
-  <v-app id="rootGrid">
-      <HomePage />
-      <PortfolioPage />
-      <AboutPage />
-      <ContactPage />
+  <v-app v-if="!loading" id="rootGrid">
+      <HomePage :data="$store.state.Admin.data['home']" />
+      <PortfolioPage :data="$store.state.Admin.data['portfolio']" />
+      <AboutPage :data="$store.state.Admin.data['about']" />
+      <ContactPage :data="$store.state.Admin.data['contact']" />
       <SpeedDial />
+      <div class="adminButton" @click="toAdmin">Login</div>
   </v-app>
 </template>
 
@@ -24,12 +25,46 @@ import SpeedDial from "./SpeedDial.vue"
       ContactPage,
       PortfolioPage,
       SpeedDial
+    },
+    created: function() {
+      fetch("/getAll").then(x => x.json())
+                      .then(y => {
+                        this.$store.dispatch("Admin/setData", y)
+                                    .then(res => {
+                                      this.loading = false
+                                    })
+                      })
+    },
+    data() {
+      return {
+        loading: true
+      }
+    },
+    methods: {
+      toAdmin() {
+        this.$router.push("/admin")
+      }
     }
   }
 
 </script>
 
 <style lang="scss">
+
+  .adminButton {
+    color:white;
+    position:fixed;
+    height:70px;
+    width:70px;
+    border-radius:50px;
+    right: 15px;
+    top:15px;
+    border:2px solid pink;
+    text-align:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
 
   .col {
     padding:0;
