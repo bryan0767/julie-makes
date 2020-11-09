@@ -6,7 +6,7 @@
             <div class="text-subtitle-1 iconColors" style="margin:20px auto 0;">{{ data['header'] }}</div>
             <div class="text-caption font-italic text-center iconColors" style="margin:10px auto 20px;">{{ data['description'] }}</div>
             <div class="d-flex justify-space-around" style="width:75%;margin:0 auto;">
-              <v-icon v-for="icon in data['icons']" :class="icon.className">{{ icon.src }}</v-icon>
+              <v-icon v-for="icon in data['icons']" :class="icon.className" @click='pushToRoute(icon.link)'>{{ icon.src }}</v-icon>
             </div>
           </v-col>
           <!-- <v-expansion-panels dark>
@@ -97,6 +97,9 @@
       },
       width() {
         return $(window).width() >= 599
+      },
+      pushToLink(src) {
+        window.location.href=src
       }
     }
   }

@@ -46,6 +46,7 @@ public class Article {
                    String description,
                    String heroimage,
                    String content,
+                   String date,
                    String link,
                    String page) {
       this.thumbnail = thumbnail;
@@ -54,6 +55,7 @@ public class Article {
   		this.description = description;
       this.heroimage = heroimage;
       this.content = content;
+      this.date = date;
       this.link = link;
   		this.page = page;
   	}

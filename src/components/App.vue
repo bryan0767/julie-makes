@@ -5,7 +5,6 @@
       <AboutPage :data="$store.state.Admin.data['about']" />
       <ContactPage :data="$store.state.Admin.data['contact']" />
       <SpeedDial />
-      <div class="adminButton" @click="toAdmin">Login</div>
   </v-app>
 </template>
 
@@ -112,14 +111,6 @@ import SpeedDial from "./SpeedDial.vue"
 
   ::-webkit-scrollbar-thumb {
       background: transparent;
-  }
-
-  @media (min-width: 2500px) {
-
-    #app {
-      height: 300vh;
-    }
-
   }
 
 </style>

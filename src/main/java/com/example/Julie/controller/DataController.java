@@ -3,25 +3,10 @@ package com.example.Julie.controller;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.Julie.model.*;
-
-import com.example.Julie.repository.DataRepository;
-import com.example.Julie.repository.ArticleRepository;
-import com.example.Julie.repository.ImageRepository;
-import com.example.Julie.repository.IconRepository;
+import com.example.Julie.repository.*;
 
 @RestController
 public class DataController {
@@ -81,8 +66,6 @@ public class DataController {
   public Map<String, Object> editPage(@PathVariable("page") String page,
                                       @RequestBody Page requestPage) {
 
-    System.out.println( requestPage.getHeroimage() + " the hero image in the request " + requestPage.getHeader() );
-
     Map<String, Object> returnData = new HashMap<>();
 
     Data data = dataRepository.findByPage(page);
@@ -114,6 +97,7 @@ public class DataController {
       Icon icon = iconRepository.findByIdNumber(x.getId());
 
       icon.setSrc(x.getSrc());
+      icon.setLink(x.getLink());
       iconRepository.save(icon);
     });
 

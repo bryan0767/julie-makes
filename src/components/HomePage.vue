@@ -8,7 +8,7 @@
       <v-col cols="10" id="homePageHeaderDivider"></v-col>
       <v-col cols="12" id="homePageHeaderIconGrid">
         <v-row style="width:70%;margin:0 auto" justify="space-around">
-          <v-icon v-for="icon in data.icons" :class="icon.className">{{ icon.src }}</v-icon>
+          <v-icon v-for="icon in data.icons" :class="icon.className" @click="pushToLink(icon.link)">{{ icon.src }}</v-icon>
         </v-row>
       </v-col>
     </v-row>
@@ -37,6 +37,9 @@
                   this.$store.commit("Home/showFab", true)
                 })
 
+      },
+      pushToLink(src) {
+        window.location.href = src
       }
     }
   }
