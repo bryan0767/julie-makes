@@ -4,18 +4,18 @@
     <v-snackbar v-model="errorSnackbar">
       {{ errorText }} <v-btn color="pink lighten-3" text @click="errorSnackbar = false">Close</v-btn>
     </v-snackbar>
-    <v-row v-if="!loggedIn" class="loginRow" justify="center">
-      <div class="text-h4">Admin Login</div>
-      <v-col cols="12">
-        <label>Username</label>
-        <input type="input" v-model="username" class="inputStyles" />
-      </v-col>
-      <v-col cols='12'>
-        <label>Password</label>
-        <input type="input" v-model="password" class="inputStyles" />
-      </v-col>
-      <v-btn @click="loginUser()">Login</v-btn>
-    </v-row>
+    <div v-if="!loggedIn" style="height:100vh;width:100vw;background:linear-gradient(#e66465, #9198e5);">
+      <v-row class="loginRow" justify="center">
+        <div class="text-h4 adminLoginTitle">Sign In</div>
+        <v-col cols="12">
+          <input type="input" v-model="username" class="inputAdminStyles" placeholder="Username" />
+        </v-col>
+        <v-col cols='12'>
+          <input type="password" v-model="password" class="inputAdminStyles" placeholder="Password" />
+        </v-col>
+        <v-btn @click="loginUser()" class="adminLoginButton">Login</v-btn>
+      </v-row>
+    </div>
     <v-row v-else>
 
       <!-- Admin Panel Left -->
@@ -89,7 +89,7 @@
             </v-row>
 
             <div v-if="option == 'articles'" style="margin:0 0 20px 0;" >
-              <v-btn @click="transitionArticle()">Edit Articles</v-btn>
+              <v-btn @click="transitionArticle()" style="color:white" class="deep-purple lighten-3">Edit Articles</v-btn>
             </div>
 
           </v-row>
@@ -110,15 +110,15 @@
 
       <v-col v-else style="padding:20px;overflow:auto;height:100vh;">
 
-        <v-btn @click="resetViews()" style="margin:0 0 20px">Back To Portfolio</v-btn>
-        <v-btn @click="resetToArticles()" style="margin:0 0 20px" v-if="showArticle || newArticleView">Back To Articles</v-btn>
-        <v-btn @click="goToAddArticle()" style="margin:0 0 20px" v-if="articleView && !showArticle && !newArticleView">New Article</v-btn>
+        <v-icon @click="resetViews()" style="margin:0 20px 20px 0">mdi-arrow-left</v-icon>
+        <v-btn @click="resetToArticles()" style="margin:0 0 20px;color:white" class="deep-purple lighten-3" v-if="showArticle || newArticleView">To Articles</v-btn>
+        <v-btn @click="goToAddArticle()" style="margin:0 0 20px;color:white" class="deep-purple lighten-3" v-if="articleView && !showArticle && !newArticleView">Add New</v-btn>
 
         <!--  -->
         <v-dialog v-model="dialog" width="500" v-if="showArticle">
           <template v-slot:activator="{ on, attrs }">
             <v-btn color="red lighten-2" dark v-bind="attrs" v-on="on" style="margin:0 0 20px" >
-              Delete Article
+              Delete
             </v-btn>
           </template>
           <v-card>
@@ -413,14 +413,47 @@
 
 <style>
 
+  .adminLoginTitle {
+    margin:25px 0;
+    color:white;
+  }
+
+  .inputAdminStyles {
+    margin:25px 0;
+    border:.5px solid #cac5c5;
+    color:grey;
+    padding:15px;
+    max-height:100px;
+    width:100%;
+    outline:none;
+    border-radius:10px;
+    box-shadow:0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    background:white;
+  }
+
+  .inputAdminStyles::placeholder {
+    color:grey;
+  }
+
+  .adminLoginButton {
+    margin:25px 0;
+    width:100%;
+    border-radius:10px;
+    padding:15px !important;
+    height:fit-content !important;
+    color: #94283b !important;
+  }
+
   .loginRow {
     position:relative;
     top:50%;
     transform:translateY(-50%);
-    max-height:400px;
+    max-height:600px;
     max-width:400px;
     padding:40px;
     margin:0 auto;
+    border-radius:20px;
+    /* background:white; */
   }
 
   .adminImagesGrid {
@@ -457,12 +490,14 @@
   }
 
   .mainNav {
-    background:#161f2e !important;
+    /* background:#161f2e !important; */
+    background: linear-gradient(#e66465, #9198e5);
     width:auto;
   }
 
   .navHeader {
-    background:pink;
+    background:transparent;
+    border-bottom:1px solid white;
     height:10%;
     color:white;
   }

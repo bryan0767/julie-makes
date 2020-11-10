@@ -39,7 +39,7 @@
 
       },
       pushToLink(src) {
-        window.location.href = src
+        window.open(src, "_blank")
       }
     }
   }
