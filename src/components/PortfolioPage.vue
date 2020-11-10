@@ -28,17 +28,17 @@
       </v-col>
       <v-col xs="12" md="9" id="portfolioItemContainer">
         <div v-if="showArticles" id="portfolioInnerItemContainer" class="d-flex flex-column flex-wrap">
-          <div v-for="( item, ind ) in $store.state.Portfolio.items" @click="showArticle( $event, item, ind )" class="portfolioItem" :key="ind">
+          <div v-for="( item, ind ) in data.articles" @click="showArticle( $event, item, ind )" class="portfolioItem" :key="ind">
             <div class="portfolioItemImage" :style="{ background:`url('${item.thumbnail}') center/cover no-repeat`, position:'relative' }"></div>
             <div class="portfolioPageItemCategory text-caption">{{ item.category }}</div>
             <div class="portfolioPageItemHeader text-subtitle-2">{{ item.header }}</div>
-            <div class="portfolioPageItemDescription">{{ item.content }}</div>
+            <div class="portfolioPageItemDescription">{{ item.description }}</div>
           </div>
         </div>
         <div v-else id="somethingStupid" style="opacity:1">
             <v-icon @click="exitArticle" id="closeButton">mdi-arrow-left</v-icon>
             <div id="contentContainer">
-              <img :src="article.heroImage" style="width:100%;margin:40px auto 0" />
+              <img :src="article.heroimage" style="width:100%;margin:40px auto 0" />
               <div :style="{margin:`20px auto`}" id="textDiv">
                 <div class="text-subtitle-2">
                   <a style="word-break:break-all"> {{ article.link }} </a>
@@ -67,6 +67,7 @@
     },
     mounted: function() {
       this.addMainScene()
+      console.log(this.data)
     },
     methods: {
       addMainScene() {
@@ -86,7 +87,7 @@
 
       },
       showArticle(e, item, index) {
-        this.article = item.articleData
+        this.article = item
         $("#portfolioInnerItemContainer").css("opacity", 0)
         setTimeout(() => this.showArticles = false, 1000)
 
